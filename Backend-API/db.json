@@ -1,0 +1,189 @@
+{
+  "categories": [
+    {
+      "id": "1",
+      "name": "Electronics",
+      "description": "Devices and gadgets for daily use."
+    },
+    {
+      "id": "2",
+      "name": "Home Appliances",
+      "description": "Appliances for home needs."
+    },
+    {
+      "id": "3",
+      "name": "Books",
+      "description": "Wide range of books for all genres."
+    }
+  ],
+  "products": [
+    {
+      "id": "1",
+      "name": "Smartphone",
+      "categoryId": 1,
+      "price": 699.99,
+      "description": "Latest model with cutting-edge features.",
+      "stock": 50
+    },
+    {
+      "id": "2",
+      "name": "Laptop",
+      "categoryId": 1,
+      "price": 1199.99,
+      "description": "Powerful laptop with sleek design.",
+      "stock": 30
+    },
+    {
+      "id": "3",
+      "name": "Microwave Oven",
+      "categoryId": 2,
+      "price": 299.99,
+      "description": "Compact and efficient microwave.",
+      "stock": 20
+    },
+    {
+      "id": "4",
+      "name": "Refrigerator",
+      "categoryId": 2,
+      "price": 899.99,
+      "description": "Energy-saving refrigerator with ample storage.",
+      "stock": 15
+    },
+    {
+      "id": "5",
+      "name": "Mystery Novel",
+      "categoryId": 3,
+      "price": 19.99,
+      "description": "A gripping mystery novel to keep you on the edge.",
+      "stock": 100
+    },
+    {
+      "id": "6",
+      "name": "Science Textbook",
+      "categoryId": 3,
+      "price": 39.99,
+      "description": "Comprehensive guide to scientific concepts.",
+      "stock": 60
+    },
+    {
+      "id": "7",
+      "name": "Wireless Earbuds",
+      "categoryId": 1,
+      "price": 149.99,
+      "description": "High-quality sound with noise cancellation.",
+      "stock": 200
+    },
+    {
+      "id": "8",
+      "name": "Tablet",
+      "categoryId": 1,
+      "price": 499.99,
+      "description": "Portable tablet with long battery life.",
+      "stock": 80
+    },
+    {
+      "id": "9",
+      "name": "Digital Camera",
+      "categoryId": 1,
+      "price": 649.99,
+      "description": "Capture moments with clarity.",
+      "stock": 25
+    },
+    {
+      "id": "10",
+      "name": "Bluetooth Speaker",
+      "categoryId": 1,
+      "price": 99.99,
+      "description": "Portable speaker with deep bass.",
+      "stock": 120
+    },
+    {
+      "id": "11",
+      "name": "Washing Machine",
+      "categoryId": 2,
+      "price": 499.99,
+      "description": "Efficient washing machine with various modes.",
+      "stock": 10
+    },
+    {
+      "id": "12",
+      "name": "Air Conditioner",
+      "categoryId": 2,
+      "price": 799.99,
+      "description": "Cool your home with advanced technology.",
+      "stock": 5
+    },
+    {
+      "id": "13",
+      "name": "Toaster",
+      "categoryId": 2,
+      "price": 49.99,
+      "description": "Perfectly toast your bread every time.",
+      "stock": 40
+    },
+    {
+      "id": "14",
+      "name": "Coffee Maker",
+      "categoryId": 2,
+      "price": 129.99,
+      "description": "Brew your coffee with ease.",
+      "stock": 60
+    },
+    {
+      "id": "15",
+      "name": "Fiction Novel",
+      "categoryId": 3,
+      "price": 14.99,
+      "description": "A captivating story of love and adventure.",
+      "stock": 150
+    },
+    {
+      "id": "16",
+      "name": "Cookbook",
+      "categoryId": 3,
+      "price": 24.99,
+      "description": "Delicious recipes for every occasion.",
+      "stock": 90
+    },
+    {
+      "id": "17",
+      "name": "History Textbook",
+      "categoryId": 3,
+      "price": 49.99,
+      "description": "Dive into the past with detailed history lessons.",
+      "stock": 70
+    },
+    {
+      "id": "18",
+      "name": "Fantasy Novel",
+      "categoryId": 3,
+      "price": 19.99,
+      "description": "An epic tale in a magical world.",
+      "stock": 85
+    },
+    {
+      "id": "19",
+      "name": "Headphones",
+      "categoryId": 1,
+      "price": 89.99,
+      "description": "Over-ear headphones with clear sound.",
+      "stock": 150
+    },
+    {
+      "id": "20",
+      "name": "Smartwatch",
+      "categoryId": 1,
+      "price": 249.99,
+      "description": "Track your fitness and notifications on the go.",
+      "stock": 100
+    },
+    {
+      "id": "21",
+      "name": "12",
+      "categoryId": "2",
+      "price": "12",
+      "description": "12",
+      "stock": "12"
+    }
+  ]
+}

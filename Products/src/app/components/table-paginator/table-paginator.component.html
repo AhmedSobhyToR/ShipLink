@@ -1,0 +1,30 @@
+<div class="paginator">
+    <div class="page-number">
+        <div class="more-button" (click)="onPageExpand()">
+            <label>{{"GENERAL.PAGE"|translate}}</label>
+            <img src="assets/images/arrow_up.svg" alt="show more pages">
+        </div>
+        
+        @if(isPageExpanded) {
+            <ul>
+                @for (page of pages; track $index) {
+                    <li (click)="onPageChange(page)">{{page}}</li>
+                }
+            </ul>
+            }
+    </div>
+    <div class="page-size">
+        <div class="more-button" (click)="onSizeExpand()">
+            <label>{{"GENERAL.SIZE"|translate}}</label>
+            <img src="assets/images/arrow_up.svg" alt="show more sizes">
+        </div>
+
+        @if(isSizeExpanded) {
+            <ul>
+                @for (size of sizes; track $index) {
+                    <li (click)="onPageSizeChange(size)">{{size}}</li>
+                }
+            </ul>
+        }
+    </div>
+</div>

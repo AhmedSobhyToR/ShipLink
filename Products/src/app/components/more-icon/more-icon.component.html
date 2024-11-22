@@ -1,0 +1,10 @@
+<div class="more-icon">
+    <div class="more-expand" >
+        <img src="assets/images/more-icon.svg" alt="details" (click)="onExpand()">
+    </div>
+
+    <div *ngIf="isExpanded" class="more-details" (click)="onDetailsView()">
+        <p>{{"GENERAL.DETAILS" | translate}}</p>
+    </div>
+
+</div>

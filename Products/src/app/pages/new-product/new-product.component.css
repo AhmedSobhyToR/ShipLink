@@ -1,0 +1,74 @@
+form{
+    max-width: 1600px;
+    height: 1000px;
+    margin: auto;
+    border: 1px solid black;
+    border-radius: 0.3rem;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 3rem;
+
+}
+.form-inputs{
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    gap: 3rem;
+}
+
+.label-input{
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+
+    label{
+        font-size: 1.6rem;
+        font-weight: bold;
+    }
+
+    textarea{
+        height: 150px;
+        resize: none;
+        scrollbar-width: thin;
+    }
+
+}
+
+.label-input label,
+ .label-input input,
+ .label-input textarea,
+ .label-input select{
+    width: 350px;
+    outline: none;
+    border: none;
+
+}
+.label-input input,
+ .label-input textarea,
+ .label-input select{
+    font-size: 1.4rem;
+    padding-left: 0.3rem;
+    background-color: black;
+    color: white;
+
+ }
+ .label-input input,
+ .label-input select{
+    height: 50px;
+ }
+
+.row{
+    gap: 3rem;
+    width: 100%;
+    flex-wrap: wrap;
+
+}
+
+
+.disabled-input{
+    background-color: grey;
+    cursor: not-allowed;
+}

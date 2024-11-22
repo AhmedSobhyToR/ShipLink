@@ -1,0 +1,33 @@
+{
+    "GENERAL": {
+        "SEARCH" : "ابحث",
+        "FILTER" : "تصفية",
+        "RESET" : "اعادة تعيين",
+        "MORE" : "المزيد",
+        "DETAILS": "التفاصيل",
+        "PAGE" : "الصفحة",
+        "SIZE" : "العدد",
+        "EXPORT_TO_EXCEL" : "تصدير الى الاكسيل"
+    },
+
+    "PRODUCT": {
+        "ID": "معرف المنتج",
+        "NAME": "اسم المنتج",
+        "CATEGORY_ID": "معرف الفئة",
+        "PRICE" : "سعر المنتج",
+        "DESCRIPTION" : "وصف المنتج",
+        "STOCK": "المخزون من المنتج",
+        "PRODUCTS_LIST": "قائمة المنتجات",
+        "PRODUCT_DETAILS": "تفاصيل المنتج",
+        "MIN_PRICE": "أقل سعر للمنتج",
+        "MAX_PRICE": "أعلى سعر للمنتج",
+        "PRODUCTS_FILTER" : "تصفية المنتجات",
+        "ADD_PRODUCT": "اضافة المنتج"
+        
+    },
+    "CATEGORY": {
+        "ID": "معرف الفئة",
+        "NAME": "اسم الفئة",
+        "DESCRIPTION" : "وصف الفئة"
+    }
+}

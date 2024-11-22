@@ -1,0 +1,50 @@
+<form [formGroup]="productsListFilterForm">
+
+    <!-- <div class="errors">
+        @for (err of formErrors; track $index) {
+            <div class="error">
+                <img src="/assets/images/error.svg" alt="an error">
+                <p>{{err}}</p>
+            </div>
+        }
+    </div> -->
+    <div class="form-inputs">
+
+        <div class="row">
+            <div class="label-input">
+                <input type="text" formControlName="id">
+                <label *ngIf="!id">{{ "PRODUCT.ID" | translate }}</label>
+            </div>
+
+            <div class="label-input">
+                <input type="text" formControlName="name" />
+                <label *ngIf="!name">{{ "PRODUCT.NAME" | translate }}</label>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="label-input">
+                <input type="text" formControlName="categoryId" />
+                <label *ngIf="!categoryId">{{ "PRODUCT.CATEGORY_ID" | translate }}</label>
+            </div>
+
+            <div class="label-input">
+                <input type="text" formControlName="minPrice" />
+                <label *ngIf="!minPrice">{{ "PRODUCT.MIN_PRICE" | translate }}</label>
+            </div>
+        </div>
+        <div class="row">
+            <div class="label-input">
+                <input type="text" formControlName="maxPrice" />
+                <label *ngIf="!maxPrice">{{ "PRODUCT.MAX_PRICE" | translate }}</label>
+            </div>
+        </div>
+
+
+    </div>
+    <div class="control-buttons">
+        <input type="button" [value]="'GENERAL.RESET' | translate" class="normal-button" (click)="resetFilter()"/>
+        <input type="button" [value]="'PRODUCT.PRODUCTS_FILTER' | translate" class="normal-button" (click)="filterList()" />
+    </div>
+
+</form>

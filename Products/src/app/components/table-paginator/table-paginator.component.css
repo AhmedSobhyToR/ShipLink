@@ -1,0 +1,65 @@
+.paginator{
+    display: flex;
+    justify-content: space-around;
+    font-size: 1.3rem;
+    margin-top: 1rem;
+
+}
+
+.paginator ul {
+    list-style-type: none;
+    background-color: black;
+    color: white;
+    /* background-color: rgba(255, 255, 255, 0.773); */
+    width: 45px;
+    text-align: center;
+    max-height: 112px;
+    overflow-y: auto;
+    scrollbar-width: thin;
+    position: absolute;
+    
+
+}
+
+.paginator ul li{
+    padding: 0.2rem;
+    cursor: pointer;
+    transition: all 0.2s ease;
+
+    &:hover{
+        background-color: grey;
+    }
+
+}
+
+.more-button{
+
+    width: 150px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: row;
+    background-color: black;
+    color: white;
+    /* background-color: rgba(255, 255, 255, 0.773); */
+    gap: 1.2rem;
+    border-radius: 0.3rem;
+    cursor: pointer;
+
+}
+.more-button label{
+    cursor: pointer;
+}
+.more-button img{
+    width: 25px;
+}
+
+.page-number ul {
+    margin-top: -116px;
+    margin-left: 87px;
+}
+.page-size ul{
+    margin-top: -153px;
+    margin-left: 87px;
+}

@@ -1,0 +1,57 @@
+<form (ngSubmit)="onAddProduct()" [formGroup]="newProductForm">
+
+    <div class="errors">
+        @for (err of formErrors; track $index) {
+            <div class="error">
+                <img src="/assets/images/error.svg" alt="an error">
+                <p>{{err}}</p>
+            </div>
+        }
+    </div>
+    <div class="form-inputs">
+
+    <div class="row">
+        <div class="label-input">
+            <label>{{ "PRODUCT.ID" | translate }}</label>
+            <input type="text" class="disabled-input" formControlName="id" [readOnly]="true"/>
+        </div>
+
+        <div class="label-input">
+            <label>{{ "PRODUCT.NAME" | translate }}</label>
+            <input type="text"formControlName="name" />
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="label-input">
+            <label>{{ "PRODUCT.CATEGORY_ID" | translate }}</label>
+            <select formControlName="categoryId">
+                @for (cat of productsCategories; track $index) {
+                    <option [value]="cat.id">{{cat.name}}</option>
+                }
+            </select>
+
+          </div>
+
+        <div class="label-input">
+            <label>{{ "PRODUCT.PRICE" | translate }}</label>
+            <input type="text" formControlName="price" />
+        </div>
+
+    </div>
+    <div class="row">
+        <div class="label-input">
+            <label>{{ "PRODUCT.STOCK" | translate }}</label>
+            <input type="text" formControlName="stock" />
+        </div>
+
+        <div class="label-input">
+            <label>{{ "PRODUCT.DESCRIPTION" | translate }}</label>
+            <textarea formControlName="description"></textarea>
+        </div>
+        
+    </div>
+        
+</div>
+    <input type="submit" [value]="'PRODUCT.ADD_PRODUCT' | translate" class="normal-button" />
+</form>

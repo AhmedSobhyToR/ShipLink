@@ -1,0 +1,95 @@
+form{
+    background-color: black;
+    color: white;
+    width: max-content;
+    padding: 3rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 2rem;
+    border-radius: 0.3rem;
+    margin: 1rem 0 2rem 0;
+    position: absolute;
+    top: 8.3rem;
+}
+
+form::before {
+    content: '';
+    width: 0; 
+    height: 0; 
+    border-left: 13px solid transparent; 
+    border-right: 13px solid transparent; 
+    border-bottom: 20px solid black; 
+    position: absolute;
+    top: -1.2rem; 
+    left: 1rem; 
+}
+
+
+.form-inputs{
+    display: flex;
+    flex-direction: column;
+    gap: 3rem;
+}
+.row{
+    gap: 2rem;
+}
+.normal-button{
+    color: black;
+    background-color: white;
+ 
+ 
+}
+
+.label-input{
+    font-weight: bold;
+    position: relative;
+}
+
+.label-input label{
+    font-size: 1.3rem;
+    position: absolute;
+    top: 50%;
+    left: 0.5rem;
+    transform: translateY(-50%);
+    pointer-events: none;
+    transition: all 0.3s ease;
+
+}
+
+
+.label-input input{
+    font-size: 1.3rem;
+    padding: 0 0.5rem;
+    height: 45px;
+    width: 400px;
+    outline: none;
+    border-radius: 0.3rem;
+    border: 2px solid white;
+    background: transparent;
+    color: white;
+
+}
+
+.label-input input:focus ~label{
+    top: 0;
+    left: 15px;
+    background-color: black;
+    font-size: 1.1rem;
+    padding: 0 0.5rem;
+
+}
+
+.control-buttons{
+    display: flex;
+    flex-direction: row;
+    gap: 1rem;
+    align-self: flex-end;
+}
+
+.control-buttons input:first-child{
+    border: 2px solid white;
+    color: white;
+    background-color: black;
+}

@@ -1,0 +1,23 @@
+.more-expand img{
+    width: 40px;
+    cursor: pointer;
+}
+.more-details{
+    position: absolute;
+    border: 1px solid black;
+    background-color: black;
+    color: white;
+    border-radius: 0.3rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 40px;
+    width: 140px;
+    cursor: pointer;
+    transition: all ease 0.2s;
+    margin-top: -1.2rem;
+    margin-left: 3rem;
+}
+.more-details:hover{
+    background-color: rgba(0, 0, 0, 0.764);
+}
