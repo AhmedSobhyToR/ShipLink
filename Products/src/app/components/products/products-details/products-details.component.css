@@ -1,0 +1,107 @@
+.product-details{
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+
+}
+.row{
+    gap: 2rem;
+    font-size: 1.3rem;
+}
+label{
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-weight: bold;
+}
+label p{
+    display: inline;
+    font-weight: lighter;
+    background-color: grey;
+    border: 1px solid white;
+    text-align: center;
+    min-width: 300px;
+    border-radius: 0.3rem;
+    padding: 0.5rem 1.3rem;
+}
+
+
+.dimensions, .colors{
+    display: flex;
+    flex-direction: row;
+    gap: 1rem;
+}
+
+.dimensions-details, .colors-details{
+    display: inline;
+    background-color: grey;
+    border: 1px solid white;
+    justify-content: space-between;
+    gap: 2rem;
+    align-items: center;
+    min-width: 300px;
+    border-radius: 0.3rem;
+    padding: 0.5rem 1.3rem;
+}
+
+.colors-details{
+    display: flex;
+    flex-direction: row;
+
+    gap: 0.3rem;
+}
+.dimensions-details p {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+}
+.dimensions-details span:first-child{
+    font-weight: bold;
+    text-align: start;
+    align-self: flex-start;
+}
+
+.review-card{
+    width: 400px;
+    height: 250px;
+    color: black;
+    background-color: white;
+    border-radius: 0.7rem;
+    box-shadow: 3px 3px 5px rgb(120, 120, 120), -3px -3px 5px rgb(120, 120, 120);
+}
+
+.reviews{
+    display: flex;
+    flex-direction: column;
+}
+.reviews label{
+    font-size: 1.3rem;
+}
+.reviews-cards{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+.review-card{
+    padding: 1rem;
+    font-size: 1.2rem;
+    display: flex;
+    flex-direction: column;
+   justify-content: space-between;
+}
+
+.review-card .user-rating{
+    display: flex;
+    justify-content: space-between;
+}
+
+.user-rating p{
+    font-weight: bold;
+}
+.user-rating img{
+    width: 25px;
+}
+.review-image{
+    justify-content: space-between;
+}

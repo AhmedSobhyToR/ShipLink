@@ -16,6 +16,11 @@ export class CategoriesService {
     return this.httpClient.get<Category[]>(`${this.backendUrl}/categories`)
   }
 
+  
+  loadCategory(id: string | number): Observable<Category>{
+    return this.httpClient.get<Category>(`${this.backendUrl}/categories/${id}`)
+  }
+
   // addCategory(): Observable<Category>{
   //   return this.httpClient.post<Category>(`${this.backendUrl}/categories`)
   // }
