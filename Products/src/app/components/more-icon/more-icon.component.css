@@ -1,3 +1,7 @@
+.more-icon{
+    position: relative;
+}
+
 .more-expand img{
     width: 40px;
     cursor: pointer;
@@ -15,7 +19,7 @@
     width: 140px;
     cursor: pointer;
     transition: all ease 0.2s;
-    margin-top: -1.2rem;
+    margin-top: -1rem;
     margin-left: 3rem;
 }
 .more-details:hover{

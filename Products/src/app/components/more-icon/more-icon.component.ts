@@ -14,7 +14,9 @@ import { LoadingService } from '../../services/loading.service';
 })
 export class MoreIconComponent {
   isExpanded: boolean = false;
-  @Input({required: true}) productId!: number | string;
+  @Input({required: true}) id!: number | string;
+  @Input({required: true}) url!: string;
+
   constructor(private router: Router,
     private loadingSer: LoadingService
   ){}
@@ -26,7 +28,6 @@ export class MoreIconComponent {
   onDetailsView(){
     this.isExpanded = false;
     this.loadingSer.startLoading();
-    console.log(this.productId);
-    this.router.navigate(['/product-details', this.productId])
+    this.router.navigate([this.url, this.id])
   }
 }

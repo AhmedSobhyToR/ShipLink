@@ -24,8 +24,12 @@
 
         <div class="row">
             <div class="label-input">
-                <input type="text" formControlName="categoryId" />
-                <label *ngIf="!categoryId">{{ "PRODUCT.CATEGORY_ID" | translate }}</label>
+                <select formControlName="categoryName">
+                    @for (cat of categoryList; track $index) {
+                        <option [value]="cat">{{cat}}</option>
+                    }
+                </select>
+                <label *ngIf="!categoryName">{{ "CATEGORY.NAME" | translate }}</label>
             </div>
 
             <div class="label-input">

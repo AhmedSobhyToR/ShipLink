@@ -3,6 +3,8 @@ import { ChangeDetectorRef, Component, EventEmitter, OnInit, Output } from '@ang
 import { FormControl, FormGroup, ReactiveFormsModule } from '@angular/forms';
 import { TranslateModule } from '@ngx-translate/core';
 import { ProductFilter } from '../../models/product.model';
+import { CategoriesService } from '../../services/categories/categories.service';
+import { Category } from '../../models/category.model';
 
 @Component({
   selector: 'app-products-list-filter',
@@ -14,26 +16,35 @@ import { ProductFilter } from '../../models/product.model';
 export class ProductsListFilterComponent implements OnInit {
 
   productsListFilterForm!: FormGroup;
+  categoryList!: string[];
   @Output() doFilter =  new EventEmitter<ProductFilter>();
   // @Output() isFiltered =  new EventEmitter<boolean>();
 
 
-  constructor(private cd: ChangeDetectorRef){}
+  constructor(private cd: ChangeDetectorRef,
+    private categorySer: CategoriesService
+  ){}
 
   ngOnInit() {
     this.productsListFilterForm = this.intializeFilterForm();
+    this.loadCategories();
   }
 
   intializeFilterForm(){
     return new FormGroup({
       id: new FormControl(null),
       name: new FormControl(null),
-      categoryId: new FormControl(null),
+      categoryName: new FormControl(null),
       minPrice: new FormControl(null),
       maxPrice: new FormControl(null),
     })
   }
 
+  loadCategories(){
+    this.categorySer.loadCategories().subscribe({
+      next: (data) => this.categoryList = data.map(data => data.name)
+    })
+  }
   resetFilter(){
     this.productsListFilterForm = this.intializeFilterForm();
     this.doFilter.emit(this.productsListFilterForm.value);
@@ -54,8 +65,8 @@ export class ProductsListFilterComponent implements OnInit {
     return this.productsListFilterForm.get('name')?.value
   }
 
-  get categoryId(){
-    return this.productsListFilterForm.get('categoryId')?.value
+  get categoryName(){
+    return this.productsListFilterForm.get('categoryName')?.value
   }
 
   get minPrice(){
