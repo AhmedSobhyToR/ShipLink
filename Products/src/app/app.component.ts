@@ -1,16 +1,16 @@
 import { AfterViewInit, ChangeDetectorRef, Component, DestroyRef, OnInit } from '@angular/core';
 import { TranslateService, TranslateModule } from '@ngx-translate/core';
-import { ProductsListComponent } from './components/products/products-list/products-list.component';
 import { RouterLink, RouterOutlet } from '@angular/router';
 import { SidenavComponent } from "./components/sidenav/sidenav.component";
 import { LoadingService } from './services/loading.service';
 import { LoadingComponent } from "./components/loading/loading.component";
+import { ProductsListComponent } from './pages/products-list/products-list.component';
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [TranslateModule, ProductsListComponent,
-     RouterLink, RouterOutlet, SidenavComponent,
+  imports: [TranslateModule,
+      RouterOutlet, SidenavComponent,
       LoadingComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'

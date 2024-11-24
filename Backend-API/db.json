@@ -2,188 +2,650 @@
   "categories": [
     {
       "id": "1",
-      "name": "Electronics",
-      "description": "Devices and gadgets for daily use."
+      "name": "Electronics"
     },
     {
       "id": "2",
-      "name": "Home Appliances",
-      "description": "Appliances for home needs."
+      "name": "Home Appliances"
     },
     {
       "id": "3",
-      "name": "Books",
-      "description": "Wide range of books for all genres."
+      "name": "Books"
     }
   ],
   "products": [
     {
       "id": "1",
       "name": "Smartphone",
-      "categoryId": 1,
+      "category": {
+        "id": "1",
+        "name": "Electronics"
+      },
       "price": 699.99,
       "description": "Latest model with cutting-edge features.",
-      "stock": 50
+      "stock": 50,
+      "imageUrl": "https://picsum.photos/id/1/500/500",
+      "brand": "TechBrand",
+      "model": "X-2024",
+      "warranty": "1 Year",
+      "addedDate": "2024-01-15",
+      "discount": {
+        "amount": 50,
+        "validUntil": "2024-12-31"
+      },
+      "dimensions": {
+        "height": 150,
+        "width": 70,
+        "weight": 180
+      },
+      "review": [
+        {
+          "reviewId": "101",
+          "user": "John Doe",
+          "comment": "Great phone, excellent performance!",
+          "rating": 5
+        },
+        {
+          "reviewId": "102",
+          "user": "Jane Smith",
+          "comment": "Battery life could be better.",
+          "rating": 4
+        }
+      ],
+      "color": [
+        "Black",
+        "White",
+        "Blue"
+      ]
     },
     {
       "id": "2",
       "name": "Laptop",
-      "categoryId": 1,
+      "category": {
+        "id": "1",
+        "name": "Electronics"
+      },
       "price": 1199.99,
       "description": "Powerful laptop with sleek design.",
-      "stock": 30
+      "stock": 30,
+      "imageUrl": "https://picsum.photos/id/2/400/400",
+      "brand": "UltraTech",
+      "model": "L-2024",
+      "warranty": "2 Years",
+      "addedDate": "2024-02-01",
+      "discount": {
+        "amount": 100,
+        "validUntil": "2024-11-30"
+      },
+      "dimensions": {
+        "height": 20,
+        "width": 320,
+        "weight": 1500
+      },
+      "review": [
+        {
+          "reviewId": "201",
+          "user": "Alice Brown",
+          "comment": "Amazing performance for programming!",
+          "rating": 5
+        }
+      ],
+      "color": [
+        "Silver",
+        "Gray"
+      ]
     },
     {
       "id": "3",
       "name": "Microwave Oven",
-      "categoryId": 2,
+      "category": {
+        "id": "2",
+        "name": "Home Appliances"
+      },
       "price": 299.99,
       "description": "Compact and efficient microwave.",
-      "stock": 20
+      "stock": 20,
+      "imageUrl": "https://picsum.photos/id/3/400/400",
+      "brand": "HomeCo",
+      "model": "MW-300",
+      "warranty": "1 Year",
+      "addedDate": "2023-12-01",
+      "discount": {
+        "amount": 20,
+        "validUntil": "2024-06-30"
+      },
+      "dimensions": {
+        "height": 30,
+        "width": 50,
+        "weight": 1200
+      },
+      "review": [
+        {
+          "reviewId": "301",
+          "user": "Robert Green",
+          "comment": "Works great, heats evenly.",
+          "rating": 4
+        }
+      ],
+      "color": [
+        "Black",
+        "Silver"
+      ]
     },
     {
       "id": "4",
       "name": "Refrigerator",
-      "categoryId": 2,
+      "category": {
+        "id": "2",
+        "name": "Home Appliances"
+      },
       "price": 899.99,
       "description": "Energy-saving refrigerator with ample storage.",
-      "stock": 15
+      "stock": 15,
+      "imageUrl": "https://picsum.photos/id/4/400/400",
+      "brand": "ChillMaster",
+      "model": "RF-2024",
+      "warranty": "3 Years",
+      "addedDate": "2024-03-10",
+      "discount": {
+        "amount": 75,
+        "validUntil": "2024-09-30"
+      },
+      "dimensions": {
+        "height": 1800,
+        "width": 700,
+        "weight": 65000
+      },
+      "review": [
+        {
+          "reviewId": "401",
+          "user": "Emily Davis",
+          "comment": "Very spacious and quiet.",
+          "rating": 5
+        }
+      ],
+      "color": [
+        "White",
+        "Gray"
+      ]
     },
     {
       "id": "5",
       "name": "Mystery Novel",
-      "categoryId": 3,
+      "category": {
+        "id": "3",
+        "name": "Books"
+      },
       "price": 19.99,
       "description": "A gripping mystery novel to keep you on the edge.",
-      "stock": 100
+      "stock": 100,
+      "imageUrl": "https://picsum.photos/id/5/400/400",
+      "brand": "BookWorld",
+      "model": "MN-2024",
+      "warranty": "No Warranty",
+      "addedDate": "2024-01-05",
+      "discount": {
+        "amount": 5,
+        "validUntil": "2024-07-31"
+      },
+      "dimensions": {
+        "height": 210,
+        "width": 150,
+        "weight": 500
+      },
+      "review": [
+        {
+          "reviewId": "501",
+          "user": "Michael Johnson",
+          "comment": "Kept me guessing until the end!",
+          "rating": 5
+        }
+      ],
+      "color": [
+        "N/A"
+      ]
     },
     {
       "id": "6",
       "name": "Science Textbook",
-      "categoryId": 3,
+      "category": {
+        "id": "3",
+        "name": "Books"
+      },
       "price": 39.99,
       "description": "Comprehensive guide to scientific concepts.",
-      "stock": 60
+      "stock": 60,
+      "imageUrl": "https://picsum.photos/id/6/400/400",
+      "brand": "EduBooks",
+      "model": "ST-2024",
+      "warranty": "No Warranty",
+      "addedDate": "2024-02-15",
+      "discount": {
+        "amount": 10,
+        "validUntil": "2024-08-31"
+      },
+      "dimensions": {
+        "height": 300,
+        "width": 220,
+        "weight": 1000
+      },
+      "review": [
+        {
+          "reviewId": "601",
+          "user": "Sarah Thompson",
+          "comment": "Very detailed and well-structured.",
+          "rating": 4
+        }
+      ],
+      "color": [
+        "N/A"
+      ]
     },
     {
       "id": "7",
       "name": "Wireless Earbuds",
-      "categoryId": 1,
+      "category": {
+        "id": "1",
+        "name": "Electronics"
+      },
       "price": 149.99,
       "description": "High-quality sound with noise cancellation.",
-      "stock": 200
+      "stock": 200,
+      "imageUrl": "https://picsum.photos/id/7/400/400",
+      "brand": "AudioTech",
+      "model": "EB-2024",
+      "warranty": "1 Year",
+      "addedDate": "2024-03-20",
+      "discount": {
+        "amount": 20,
+        "validUntil": "2024-05-31"
+      },
+      "dimensions": {
+        "height": 30,
+        "width": 20,
+        "weight": 200
+      },
+      "review": [
+        {
+          "reviewId": "701",
+          "user": "Jessica Lee",
+          "comment": "Amazing sound quality for the price.",
+          "rating": 5
+        }
+      ],
+      "color": [
+        "Black",
+        "White"
+      ]
     },
     {
       "id": "8",
       "name": "Tablet",
-      "categoryId": 1,
+      "category": {
+        "id": "1",
+        "name": "Electronics"
+      },
       "price": 499.99,
       "description": "Portable tablet with long battery life.",
-      "stock": 80
+      "stock": 80,
+      "imageUrl": "https://picsum.photos/id/8/400/400",
+      "brand": "SmartTech",
+      "model": "Tab-2024",
+      "warranty": "1 Year",
+      "addedDate": "2024-02-28",
+      "discount": {
+        "amount": 30,
+        "validUntil": "2024-04-30"
+      },
+      "dimensions": {
+        "height": 250,
+        "width": 170,
+        "weight": 600
+      },
+      "review": [
+        {
+          "reviewId": "801",
+          "user": "James Wilson",
+          "comment": "Perfect for reading and browsing.",
+          "rating": 4
+        }
+      ],
+      "color": [
+        "Silver",
+        "Gray",
+        "Gold"
+      ]
     },
     {
       "id": "9",
       "name": "Digital Camera",
-      "categoryId": 1,
+      "category": {
+        "id": "1",
+        "name": "Electronics"
+      },
       "price": 649.99,
       "description": "Capture moments with clarity.",
-      "stock": 25
+      "stock": 25,
+      "imageUrl": "https://picsum.photos/id/9/400/400",
+      "brand": "PhotoPro",
+      "model": "Cam-X500",
+      "warranty": "2 Years",
+      "addedDate": "2024-01-25",
+      "discount": {
+        "amount": 50,
+        "validUntil": "2024-10-31"
+      },
+      "dimensions": {
+        "height": 120,
+        "width": 100,
+        "weight": 500
+      },
+      "review": [
+        {
+          "reviewId": "901",
+          "user": "Alex Carter",
+          "comment": "Crystal-clear photos and easy to use.",
+          "rating": 5
+        }
+      ],
+      "color": [
+        "Black",
+        "Silver"
+      ]
     },
     {
       "id": "10",
       "name": "Bluetooth Speaker",
-      "categoryId": 1,
+      "category": {
+        "id": "3",
+        "name": "Home Appliances"
+      },
       "price": 99.99,
       "description": "Portable speaker with deep bass.",
-      "stock": 120
+      "stock": 120,
+      "imageUrl": "https://picsum.photos/id/10/400/400",
+      "brand": "SoundWave",
+      "model": "BTS-300",
+      "warranty": "1 Year",
+      "addedDate": "2024-03-05",
+      "discount": {
+        "amount": 15,
+        "validUntil": "2024-07-31"
+      },
+      "dimensions": {
+        "height": 100,
+        "width": 80,
+        "weight": 300
+      },
+      "review": [
+        {
+          "reviewId": "1001",
+          "user": "Liam Johnson",
+          "comment": "Great sound and excellent portability.",
+          "rating": 5
+        }
+      ],
+      "color": [
+        "Black",
+        "Blue",
+        "Red"
+      ]
     },
     {
       "id": "11",
       "name": "Washing Machine",
-      "categoryId": 2,
+      "category": {
+        "id": "3",
+        "name": "Home Appliances"
+      },
       "price": 499.99,
       "description": "Efficient washing machine with various modes.",
-      "stock": 10
+      "stock": 10,
+      "imageUrl": "https://picsum.photos/id/11/400/400",
+      "brand": "CleanHome",
+      "model": "WM-2024",
+      "warranty": "3 Years",
+      "addedDate": "2024-02-10",
+      "discount": {
+        "amount": 50,
+        "validUntil": "2024-06-30"
+      },
+      "dimensions": {
+        "height": 850,
+        "width": 600,
+        "weight": 70000
+      },
+      "review": [
+        {
+          "reviewId": "1101",
+          "user": "Sophia Martin",
+          "comment": "Quiet and highly efficient.",
+          "rating": 5
+        }
+      ],
+      "color": [
+        "White",
+        "Gray"
+      ]
     },
     {
       "id": "12",
       "name": "Air Conditioner",
-      "categoryId": 2,
+      "category": {
+        "id": "2",
+        "name": "Home Appliances"
+      },
       "price": 799.99,
       "description": "Cool your home with advanced technology.",
-      "stock": 5
+      "stock": 5,
+      "imageUrl": "https://picsum.photos/id/12/400/400",
+      "brand": "CoolBreeze",
+      "model": "AC-2024",
+      "warranty": "5 Years",
+      "addedDate": "2024-01-20",
+      "discount": {
+        "amount": 100,
+        "validUntil": "2024-08-31"
+      },
+      "dimensions": {
+        "height": 290,
+        "width": 850,
+        "weight": 45000
+      },
+      "review": [
+        {
+          "reviewId": "1201",
+          "user": "Oliver Williams",
+          "comment": "Cools the room quickly and efficiently.",
+          "rating": 4
+        }
+      ],
+      "color": [
+        "White"
+      ]
     },
     {
       "id": "13",
       "name": "Toaster",
-      "categoryId": 2,
+      "category": {
+        "id": "2",
+        "name": "Home Appliances"
+      },
       "price": 49.99,
       "description": "Perfectly toast your bread every time.",
-      "stock": 40
+      "stock": 40,
+      "imageUrl": "https://picsum.photos/id/13/400/400",
+      "brand": "KitchenPro",
+      "model": "ToastMaster-100",
+      "warranty": "1 Year",
+      "addedDate": "2024-03-01",
+      "discount": {
+        "amount": 5,
+        "validUntil": "2024-05-31"
+      },
+      "dimensions": {
+        "height": 220,
+        "width": 180,
+        "weight": 1500
+      },
+      "review": [
+        {
+          "reviewId": "1301",
+          "user": "Emma Brown",
+          "comment": "Toasts evenly and looks sleek on the counter.",
+          "rating": 4
+        }
+      ],
+      "color": [
+        "Black",
+        "Silver"
+      ]
     },
     {
       "id": "14",
       "name": "Coffee Maker",
-      "categoryId": 2,
+      "category": {
+        "id": "2",
+        "name": "Home Appliances"
+      },
       "price": 129.99,
       "description": "Brew your coffee with ease.",
-      "stock": 60
+      "stock": 60,
+      "imageUrl": "https://picsum.photos/id/14/400/400",
+      "brand": "BrewTech",
+      "model": "CF-2024",
+      "warranty": "2 Years",
+      "addedDate": "2024-02-25",
+      "discount": {
+        "amount": 10,
+        "validUntil": "2024-07-31"
+      },
+      "dimensions": {
+        "height": 350,
+        "width": 250,
+        "weight": 4000
+      },
+      "review": [
+        {
+          "reviewId": "1401",
+          "user": "Mason Clark",
+          "comment": "Makes excellent coffee quickly.",
+          "rating": 5
+        }
+      ],
+      "color": [
+        "Black",
+        "White"
+      ]
     },
     {
       "id": "15",
       "name": "Fiction Novel",
-      "categoryId": 3,
+      "category": {
+        "id": "3",
+        "name": "Books"
+      },
       "price": 14.99,
       "description": "A captivating story of love and adventure.",
-      "stock": 150
+      "stock": 150,
+      "imageUrl": "https://picsum.photos/id/15/400/400",
+      "brand": "NovelPress",
+      "model": "FN-2024",
+      "warranty": "No Warranty",
+      "addedDate": "2024-01-18",
+      "discount": {
+        "amount": 2,
+        "validUntil": "2024-12-31"
+      },
+      "dimensions": {
+        "height": 210,
+        "width": 150,
+        "weight": 450
+      },
+      "review": [
+        {
+          "reviewId": "1501",
+          "user": "Ava Lopez",
+          "comment": "Couldn't put it down!",
+          "rating": 5
+        }
+      ],
+      "color": [
+        "N/A"
+      ]
+    }
+  ],
+  "shipments": [
+    {
+      "id": "s1",
+      "trackingNumber": "TRACK12345",
+      "sender": {
+        "name": "Alice Johnson",
+        "phone": "123-456-7890"
+      },
+      "receiver": {
+        "name": "Bob Smith",
+        "phone": "987-654-3210"
+      },
+      "products": [
+        {
+          "id": "1",
+          "name": "Laptop",
+          "quantity": 1
+        },
+        {
+          "id": "2",
+          "name": "Mouse",
+          "quantity": 2
+        }
+      ],
+      "status": "Shipped",
+      "origin": {
+        "street": "123 Main St",
+        "city": "New York",
+        "state": "NY",
+        "postalCode": "10001",
+        "country": "USA"
+      },
+      "destination": {
+        "street": "456 Elm St",
+        "city": "San Francisco",
+        "state": "CA",
+        "postalCode": "94107",
+        "country": "USA"
+      },
+      "shippedDate": "2024-11-01T10:00:00Z",
+      "estimatedDeliveryDate": "2024-11-07T18:00:00Z",
+      "carrier": "FedEx",
+      "notes": "Handle with care."
+    }
+  ],
+  "users": [
+    {
+      "name": "Alice Johnson",
+      "phone": "123-456-7890"
     },
     {
-      "id": "16",
-      "name": "Cookbook",
-      "categoryId": 3,
-      "price": 24.99,
-      "description": "Delicious recipes for every occasion.",
-      "stock": 90
+      "name": "Bob Smith",
+      "phone": "987-654-3210"
     },
     {
-      "id": "17",
-      "name": "History Textbook",
-      "categoryId": 3,
-      "price": 49.99,
-      "description": "Dive into the past with detailed history lessons.",
-      "stock": 70
+      "name": "Ahmed Sobhy",
+      "phone": "0000000000"
+    }
+  ],
+  "carrier": [
+    {
+      "name": "FedEx"
     },
     {
-      "id": "18",
-      "name": "Fantasy Novel",
-      "categoryId": 3,
-      "price": 19.99,
-      "description": "An epic tale in a magical world.",
-      "stock": 85
+      "name": "Amazon"
     },
     {
-      "id": "19",
-      "name": "Headphones",
-      "categoryId": 1,
-      "price": 89.99,
-      "description": "Over-ear headphones with clear sound.",
-      "stock": 150
+      "name": "DHL"
     },
     {
-      "id": "20",
-      "name": "Smartwatch",
-      "categoryId": 1,
-      "price": 249.99,
-      "description": "Track your fitness and notifications on the go.",
-      "stock": 100
-    },
-    {
-      "id": "21",
-      "name": "12",
-      "categoryId": "2",
-      "price": "12",
-      "description": "12",
-      "stock": "12"
+      "name": "Aramex"
     }
   ]
 }

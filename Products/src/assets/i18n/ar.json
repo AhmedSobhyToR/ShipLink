@@ -11,23 +11,64 @@
     },
 
     "PRODUCT": {
+        "PRODUCTS" : "المنتجات",
         "ID": "معرف المنتج",
         "NAME": "اسم المنتج",
         "CATEGORY_ID": "معرف الفئة",
+
         "PRICE" : "سعر المنتج",
         "DESCRIPTION" : "وصف المنتج",
         "STOCK": "المخزون من المنتج",
         "PRODUCTS_LIST": "قائمة المنتجات",
         "PRODUCT_DETAILS": "تفاصيل المنتج",
+        "NEW_PRODUCT" : "طلب منتج جديد",
+        "PRODUCTS_DATA_DETAILS" : "بيانات المنتجات",
         "MIN_PRICE": "أقل سعر للمنتج",
         "MAX_PRICE": "أعلى سعر للمنتج",
+        "QUANTITY" : "الكمية",
         "PRODUCTS_FILTER" : "تصفية المنتجات",
-        "ADD_PRODUCT": "اضافة المنتج"
+        "ADD_PRODUCT": "اضافة المنتج",
+        "BRAND": "الماركة",
+        "MODEL": "الموديل",
+        "WARRANTY": "الضمان",
+        "ADDED_DATE": "تاريخ اضافة المنتج",
+        "DISCOUNT": "الخصم",
+        "AMOUNT": "النسبة",
+        "VALID_UNTIL": "صالح ل",
+        "DIMENSIONS" : "الابعاد",
+        "HEIGHT": "الطول",
+        "WIDTH" : "العرض",
+        "WEIGHT": "الوزن",
+        "COLOR" : "اللون",
+        "REVIEWS": "اراء المستخدمين"
         
     },
     "CATEGORY": {
         "ID": "معرف الفئة",
         "NAME": "اسم الفئة",
         "DESCRIPTION" : "وصف الفئة"
+    },
+
+    "SHIPMENT":{
+        "SHIPMENTS" : "الشحنات",
+        "SHIPMENTS_LIST": "قائمة الشحنات",
+        "SHIPMENT_DETAILS": "بيانات الشحنة",
+        "NEW_SHIPMENT" : "طلب شحنة جديدة",
+        "ID": "معرف الشحنة",
+        "SENDER": "المرسل",
+        "RECEIVER": "المستلم",
+        "CARRIER": "الجهة الموصلة",
+        "ORIGIN": "المصدر",
+        "DESTINATION": "الوجهة",
+        "SHIPPED_DATE": "تاريخ الشحن",
+        "ADD_SHIPMENT": "اضافة الشحنة",
+        "ESTIMATED_DELIVERY_DATE": "تاريخ التسليم المقدر",
+        "NOTES" : "ملاحظات",
+
+        "USERS_DETAILS" : "بيانات المستخدمين",
+        "STREET": "الشارع",
+        "CITY" : "المدينة",
+        "COUNTRY": "الدولة"
+        
     }
 }
