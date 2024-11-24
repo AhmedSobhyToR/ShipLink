@@ -1,0 +1,130 @@
+form{
+    max-width: 1600px;
+    min-height: 90vh;
+    margin: auto;
+    border: 1px solid black;
+    border-radius: 0.3rem;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    padding: 1rem 0;
+
+
+}
+.form-inputs{
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+}
+/* Users Details */
+.users-details,
+ .shipment-details,
+ .products-details{
+    display: flex;
+    flex-direction: column;
+    padding: 1rem;
+}
+
+h2{
+    /* color: black; */
+    font-size: 2rem;
+    color: rgb(7, 0, 44);
+    /* text-align: end; */
+}
+
+.row{
+    justify-content: space-around;
+    width: 100%;
+    flex-wrap: wrap;
+}
+
+
+.label-input{
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+
+    label{
+        font-size: 1.6rem;
+        font-weight: bold;
+    }
+
+    textarea{
+        height: 150px;
+        resize: none;
+        scrollbar-width: thin;
+    }
+
+}
+
+.label-input label,
+ .label-input input,
+ .label-input textarea,
+ .label-input select{
+    width: 350px;
+    outline: none;
+    border: none;
+
+}
+.label-input input,
+ .label-input textarea,
+ .label-input select{
+    font-size: 1.4rem;
+    padding: 0.5rem;
+    /* background-color:  rgb(7, 0, 44); */
+    /* background-color: rgb(218, 218, 218); */
+    background-color: transparent;
+    color: rgb(7, 0, 44);
+    border: 1px solid black;
+    border-radius: 0.3rem;
+
+
+ }
+ .label-input input,
+ .label-input select{
+    height: 50px;
+ }
+
+
+
+.disabled-input{
+    background-color: black;    
+    color: white;
+    cursor: not-allowed;
+}
+.internal-form{
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.internal-form h2{
+    font-size: 1.7rem;
+}
+
+.add-product,.remove-product{
+    width: 50px;
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 2px solid black;
+    cursor: pointer;
+    border-radius: 0.7rem;
+
+}
+
+.add-product img,
+.remove-product img{
+ width: 30px;
+}
+
+.remove-product{
+    align-self: center;
+}
+
+
+
+input[type='submit']{
+    margin: auto;
+}
