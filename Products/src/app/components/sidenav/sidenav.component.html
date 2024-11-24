@@ -1,17 +1,17 @@
 <nav>
     <div class="main-nav">
-        <label class="expand">Products</label>
+        <label class="expand">{{'PRODUCT.PRODUCTS' | translate}}</label>
         <div class="side-nav">
-            <a (click)="onNavigate('/products-list')" >Products List</a>
-            <a (click)="onNavigate('/new-product')" >New Product</a>
+            <a (click)="onNavigate('/products/products-list')" >{{'PRODUCT.PRODUCTS_LIST' |translate}}</a>
+            <a (click)="onNavigate('/products/new-product')" >{{'PRODUCT.NEW_PRODUCT' |translate}}</a>
         </div>
     </div>
 
     <div class="main-nav">
-        <label class="expand">Shipments</label>
+        <label class="expand">{{'SHIPMENT.SHIPMENTS' | translate}}</label>
         <div class="side-nav">
-            <a (click)="onNavigate('/shipments-list')" >Shipment List</a>
-            <a (click)="onNavigate('/new-shipment')" >New Shipment</a>
+            <a (click)="onNavigate('/shipments/shipments-list')" >{{'SHIPMENT.SHIPMENTS_LIST' |translate}}</a>
+            <a (click)="onNavigate('/shipments/new-shipment')" >{{'SHIPMENT.NEW_SHIPMENT' |translate}}</a>
         </div>
     </div>
 

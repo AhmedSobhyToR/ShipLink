@@ -1,10 +1,12 @@
 import { Component } from '@angular/core';
 import { Router, RouterLink } from '@angular/router';
 import { LoadingService } from '../../services/loading.service';
+import { TranslateModule } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-sidenav',
   standalone: true,
+  imports: [TranslateModule],
   templateUrl: './sidenav.component.html',
   styleUrl: './sidenav.component.css'
 })

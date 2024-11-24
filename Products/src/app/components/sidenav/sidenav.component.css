@@ -3,10 +3,11 @@ nav{
     flex-direction: column;
     justify-content: flex-start;
     gap: 1rem;
-    background-color: black;
+    background-color: rgb(7, 0, 44);
     width: 200px;
     height: 100vh;
-    padding: 1.5rem 0.3rem;
+    position: fixed;
+    padding: 1.5rem 0.5rem;
 }
 .main-nav{
     display: flex;
@@ -15,7 +16,7 @@ nav{
 }
 
 .main-nav label{
-    font-size: 1.4rem;
+    font-size: 2rem;
     color: white;
     font-weight: bold;
     align-self: flex-start;
@@ -28,7 +29,7 @@ nav{
 }
 .side-nav a{
     text-decoration: none;
-    font-size: 1.2rem;
+    font-size: 1.6rem;
     color: white;
     transition: color 0.3s ease;
     cursor: pointer;
