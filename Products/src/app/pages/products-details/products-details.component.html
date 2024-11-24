@@ -1,0 +1,107 @@
+<div class="product-details">
+    <app-page-header [title]="prdDetails.name" [totalData]="prdDetails.id"></app-page-header>
+    <div class="row">
+        <div class="info-container"><label>{{'CATEGORY.NAME' | translate}} </label>
+            <p>{{categoryName}}</p>
+        </div>
+        <div class="info-container"><label>{{'PRODUCT.NAME' | translate}} </label>
+            <p>{{prdDetails.name}}</p>
+        </div>
+    </div>
+    <div class="row">
+        <div class="info-container"><label>{{'PRODUCT.PRICE' | translate}} </label>
+            <p>{{prdDetails.price}} EGP</p>
+        </div>
+        <div class="info-container"><label>{{'PRODUCT.STOCK' | translate}}</label>
+            <p>{{prdDetails.stock}}</p>
+        </div>
+    </div>
+    <div class="row">
+        <div class="info-container"><label>{{'PRODUCT.BRAND' | translate}} </label>
+            <p>{{prdDetails.brand}}</p>
+        </div>
+        <div class="info-container"><label>{{'PRODUCT.MODEL' | translate}}</label>
+            <p>{{prdDetails.model}}</p>
+        </div>
+    </div>
+    <div class="row">
+        <div class="info-container"><label>{{'PRODUCT.WARRANTY' | translate}}</label>
+            <p>{{prdDetails.warranty}}</p>
+        </div>
+        <div class="info-container"><label>{{'PRODUCT.ADDED_DATE' | translate}} </label>
+            <p>{{prdDetails.addedDate}}</p>
+        </div>
+    </div>
+
+    <div class="row">
+        <!-- Discount -->
+        <div class="info-container">
+            <label>{{'PRODUCT.DISCOUNT' | translate}}</label>
+                <div class="discount-details">
+                    <p><span>{{'PRODUCT.AMOUNT' | translate}}</span> <span>{{prdDetails.discount.amount}}%</span></p>
+                    <p><span>{{'PRODUCT.VALID_UNTIL' | translate}}</span> <span>{{prdDetails.discount.validUntil}}</span></p>
+                </div>
+
+        </div>
+        <!-- Dimensions -->
+        <div class="info-container">
+            <label>{{'PRODUCT.DIMENSIONS' | translate}}</label>
+            <div class="dimensions-details">
+                <p><span>{{'PRODUCT.HEIGHT' | translate}}</span> {{prdDetails.dimensions.height}}</p>
+                <p><span>{{'PRODUCT.WIDTH' | translate}}</span> {{prdDetails.dimensions.width}}</p>
+                <p><span>{{'PRODUCT.WEIGHT' | translate}}</span> {{prdDetails.dimensions.weight}}</p>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <!-- Colors -->
+        <div class="info-container">
+            <label>{{'PRODUCT.COLOR' | translate}}</label>
+            <div class="colors-details">
+                @for (col of prdDetails.color; track $index) {
+                <p [style.color]="col">{{col}}</p>
+                }
+            </div>
+        </div>
+        <!-- Description -->
+        <div class="info-container">
+            <label>{{'PRODUCT.DESCRIPTION' | translate}}</label>
+            <div class="description-details">
+                <p><span>{{prdDetails.description}}</span></p>
+            </div>
+        </div>
+
+    </div>
+    <div class="row">
+        <!-- Reviews -->
+        <div class="info-container">
+            <label>{{'PRODUCT.REVIEWS' | translate}}</label>
+            <div class="reviews-cards">
+                @for (review of prdDetails.review; track $index) {
+                <div class="review-card">
+                    <p>{{review.comment}}</p>
+                    <div class="user-rating">
+                        <p>{{review.user}}</p>
+                        @for (rat of getStarsArray(review.rating); track $index) {
+                        <img src="/assets/images/star-solid.svg" alt="star">
+                        }
+                        @for (rat of getStarsArray(5-review.rating); track $index) {
+                        <img src="/assets/images/star-regular.svg" alt="star">
+                        }
+                    </div>
+                </div>
+                }
+
+            </div>
+
+        </div>
+
+        <div class="product-img">
+            <img [src]="prdDetails.imageUrl" alt="product image">
+        </div>
+    </div>
+
+
+
+
+</div>
