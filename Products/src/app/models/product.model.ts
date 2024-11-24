@@ -1,7 +1,9 @@
+import { Category } from "./category.model";
+
 export interface Product{
     id: number;
     name: string;
-    categoryId: number;
+    category: Category;
     price: number;
     description: string;
     stock: number;
@@ -11,7 +13,7 @@ export interface Product{
 export interface ProductDetails{
     id: number;
     name: string;
-    categoryId: number;
+    category: Category;
     price: number;
     description: string;
     stock: number;
@@ -31,7 +33,7 @@ export interface ProductDetails{
 export interface ProductFilter{
     id: number;
     name: string;
-    categoryId: number;
+    categoryName: string;
     minPrice: number;
     maxPrice: number;
 }

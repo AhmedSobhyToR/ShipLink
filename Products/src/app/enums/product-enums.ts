@@ -8,8 +8,9 @@ export const PRODUCT_LIST_COLUMN = [
       property : 'name'
     },
     {
-      label: 'PRODUCT.CATEGORY_ID',
-      property : 'categoryId'
+      label: 'CATEGORY.NAME',
+      property : 'category',
+      valueTransformation: (category: { name: string }) => category?.name,
     },
     {
       label: 'PRODUCT.PRICE',
@@ -25,6 +26,4 @@ export const PRODUCT_LIST_COLUMN = [
     }
   ]
 
-  
-
-  export const Sizes = [10, 20, 30, 40,50]
+export const Sizes = [10, 20, 30, 40,50]
