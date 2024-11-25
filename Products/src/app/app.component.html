@@ -1,11 +1,10 @@
 @if (isLoading) {
     <app-loading></app-loading>
 }
-<div class="layout">
+<div class="layout" [style.direction]="getLang=='ar'?'rtl':'ltr'">
     <app-sidenav></app-sidenav>
-    <div class="main-page">
+    <div class="main-page" [style.margin-right]="getLang=='ar'?'200px':''"
+     [style.margin-left]="getLang=='en'?'200px':''">
         <router-outlet></router-outlet>
     </div>
 </div>
-
-<!-- <app-products-list></app-products-list> -->

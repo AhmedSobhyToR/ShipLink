@@ -1,0 +1,81 @@
+{
+    "GENERAL": {
+        "SEARCH": "Search",
+        "FILTER": "Filter",
+        "RESET": "Reset",
+        "MORE": "More",
+        "DETAILS": "Details",
+        "PAGE": "Page",
+        "SIZE": "Size",
+        "EXPORT_TO_EXCEL": "Export to Excel",
+        "NAME": "Name",
+        "PHONE": "Phone"
+    },
+
+    "PRODUCT": {
+        "PRODUCTS": "Products",
+        "ID": "Product ID",
+        "NAME": "Product Name",
+        "CATEGORY_ID": "Category ID",
+
+        "PRICE": "Product Price",
+        "DESCRIPTION": "Product Description",
+        "STOCK": "Product Stock",
+        "PRODUCTS_LIST": "Products List",
+        "PRODUCT_DETAILS": "Product Details",
+        "NEW_PRODUCT": "Request New Product",
+        "PRODUCTS_DATA_DETAILS": "Products Data Details",
+        "MIN_PRICE": "Minimum Product Price",
+        "MAX_PRICE": "Maximum Product Price",
+        "QUANTITY": "Quantity",
+        "PRODUCTS_FILTER": "Products Filter",
+        "ADD_PRODUCT": "Add Product",
+        "ADD_NEW_PRODUCT": "Add New Product",
+
+        "BRAND": "Brand",
+        "MODEL": "Model",
+        "WARRANTY": "Warranty",
+        "ADDED_DATE": "Product Added Date",
+        "DISCOUNT": "Discount",
+        "AMOUNT": "Amount",
+        "VALID_UNTIL": "Valid Until",
+        "DIMENSIONS": "Dimensions",
+        "HEIGHT": "Height",
+        "WIDTH": "Width",
+        "WEIGHT": "Weight",
+        "COLOR": "Color",
+        "REVIEWS": "User Reviews"
+    },
+    "CATEGORY": {
+        "ID": "Category ID",
+        "NAME": "Category Name",
+        "DESCRIPTION": "Category Description"
+    },
+
+    "SHIPMENT": {
+        "SHIPMENTS": "Shipments",
+        "SHIPMENTS_LIST": "Shipments List",
+        "SHIPMENT_DETAILS": "Shipment Details",
+        "NEW_SHIPMENT": "Request New Shipment",
+        "ID": "Shipment ID",
+        "TRACKING_NUMBER": "Tracking Number",
+        "STATUS": "Delivery Status",
+        "SENDER": "Sender",
+        "RECEIVER": "Receiver",
+        "CARRIER": "Carrier",
+        "ORIGIN": "Origin",
+        "DESTINATION": "Destination",
+        "SHIPPED_DATE": "Shipped Date",
+        "ADD_SHIPMENT": "Add Shipment",
+        "DATE": "Date",
+        "TIME": "Time",
+        "ESTIMATED_DELIVERY_DATE": "Estimated Delivery Date",
+        "NOTES": "Notes",
+
+        "USERS_DETAILS": "Users Details",
+        "STREET": "Street",
+        "STATE": "State",
+        "CITY": "City",
+        "COUNTRY": "Country"
+    }
+}

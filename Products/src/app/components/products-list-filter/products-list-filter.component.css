@@ -10,9 +10,12 @@ form{
     gap: 2rem;
     border-radius: 0.3rem;
     margin: 1rem 0 2rem 0;
+    /* left: 5.5rem; */
+    z-index: 9;
     position: absolute;
-    top: 8.3rem;
+    top: 9rem;
 }
+
 
 form::before {
     content: '';
@@ -23,9 +26,15 @@ form::before {
     border-bottom: 20px solid rgb(7, 0, 44);
     position: absolute;
     top: -1.2rem; 
+}
+
+.form-left::before{
     left: 1rem; 
 }
 
+.form-right::before{
+    right: 1rem;
+}
 
 .form-inputs{
     display: flex;
@@ -51,36 +60,32 @@ form::before {
     font-size: 1.3rem;
     position: absolute;
     top: 50%;
-    left: 0.5rem;
     transform: translateY(-50%);
     pointer-events: none;
     transition: all 0.3s ease;
-
 }
+
 
 
 .label-input input{
     font-size: 1.3rem;
     padding: 0 0.5rem;
-    height: 45px;
+    height: 60px;
     width: 400px;
     outline: none;
-    border-radius: 0.3rem;
+    border-radius: 0.7rem;
     border: 2px solid white;
     background: transparent;
     color: white;
 
 }
 .label-input select{
-    height: 45px;
+    height: 60px;
     width: 400px;
     outline: none;
     border: 2px solid white;
-    border-radius: 0.3rem;
+    border-radius: 0.7rem;
     padding: 0 0.5rem;
-
-
-
 }
 .label-input option,
  .label-input select{
@@ -92,11 +97,26 @@ form::before {
 
 .label-input input:focus ~label{
     top: 0;
-    left: 15px;
     background-color: rgb(7, 0, 44);
     font-size: 1.1rem;
     padding: 0 0.5rem;
 
+}
+
+.label-input .label-left{
+    right: 1rem;
+}
+
+.label-input .label-right{
+    left: 1rem;
+}
+
+.label-input .input-left:focus ~label{
+    right: 1rem;
+}
+
+.label-input .input-right:focus ~label{
+    left: 1rem;
 }
 
 .control-buttons{

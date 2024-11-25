@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { Router, RouterLink } from '@angular/router';
 import { LoadingService } from '../../services/loading.service';
-import { TranslateModule } from '@ngx-translate/core';
+import { TranslateModule, TranslateService } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-sidenav',
@@ -13,11 +13,18 @@ import { TranslateModule } from '@ngx-translate/core';
 export class SidenavComponent {
   constructor(private loadingSer: LoadingService,
     private router: Router,
-  ){}
+    private translate: TranslateService
+  ){
+    this.loadingSer.endLoading();
+  }
 
   onNavigate(url:string){
     this.loadingSer.startLoading();
     this.router.navigate([url]);
+  }
+
+  switchLanguage(language: string){
+    this.translate.use(language);
   }
 
 

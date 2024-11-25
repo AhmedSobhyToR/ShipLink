@@ -41,5 +41,9 @@ export class AppComponent implements OnInit{
     this.translate.use(language);
   }
 
+  get getLang(){
+    return this.translate.currentLang
+  }
+
 
 }

@@ -7,7 +7,9 @@
         "DETAILS": "التفاصيل",
         "PAGE" : "الصفحة",
         "SIZE" : "العدد",
-        "EXPORT_TO_EXCEL" : "تصدير الى الاكسيل"
+        "EXPORT_TO_EXCEL" : "تصدير الى الاكسيل",
+        "NAME": "الاسم",
+        "PHONE": "رقم الهاتف"
     },
 
     "PRODUCT": {
@@ -28,6 +30,11 @@
         "QUANTITY" : "الكمية",
         "PRODUCTS_FILTER" : "تصفية المنتجات",
         "ADD_PRODUCT": "اضافة المنتج",
+        "ADD_NEW_PRODUCT": "اضافة منتج جديد",
+        "ADD_NEW_DISCOUNT": "اضافة خصم للمنتج",
+        "REMOVE_NEW_DISCOUNT": "الغاء الخصم",
+        "ADD_NEW_DIMENSIONS": "اضافة ابعاد المنتج",
+        "REMOVE_NEW_DIMENSIONS": "الغاء ابعاد المنتج",
         "BRAND": "الماركة",
         "MODEL": "الموديل",
         "WARRANTY": "الضمان",
@@ -55,6 +62,8 @@
         "SHIPMENT_DETAILS": "بيانات الشحنة",
         "NEW_SHIPMENT" : "طلب شحنة جديدة",
         "ID": "معرف الشحنة",
+        "TRACKING_NUMBER" : "رقم التتبع",
+        "STATUS": "حالة التوصيل",
         "SENDER": "المرسل",
         "RECEIVER": "المستلم",
         "CARRIER": "الجهة الموصلة",
@@ -62,11 +71,14 @@
         "DESTINATION": "الوجهة",
         "SHIPPED_DATE": "تاريخ الشحن",
         "ADD_SHIPMENT": "اضافة الشحنة",
+        "DATE": "التاريخ",
+        "TIME" : "التوقيت",
         "ESTIMATED_DELIVERY_DATE": "تاريخ التسليم المقدر",
         "NOTES" : "ملاحظات",
 
         "USERS_DETAILS" : "بيانات المستخدمين",
         "STREET": "الشارع",
+        "STATE": "المنطقة",
         "CITY" : "المدينة",
         "COUNTRY": "الدولة"
         

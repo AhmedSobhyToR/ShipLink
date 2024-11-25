@@ -1,7 +1,7 @@
-import { CommonModule } from '@angular/common';
+import { CommonModule, NgClass } from '@angular/common';
 import { ChangeDetectorRef, Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { FormControl, FormGroup, ReactiveFormsModule } from '@angular/forms';
-import { TranslateModule } from '@ngx-translate/core';
+import { TranslateModule, TranslateService } from '@ngx-translate/core';
 import { ProductFilter } from '../../models/product.model';
 import { CategoriesService } from '../../services/categories/categories.service';
 import { Category } from '../../models/category.model';
@@ -9,7 +9,7 @@ import { Category } from '../../models/category.model';
 @Component({
   selector: 'app-products-list-filter',
   standalone: true,
-  imports: [TranslateModule, ReactiveFormsModule, CommonModule],
+  imports: [TranslateModule, ReactiveFormsModule, CommonModule, NgClass],
   templateUrl: './products-list-filter.component.html',
   styleUrl: './products-list-filter.component.css'
 })
@@ -22,7 +22,8 @@ export class ProductsListFilterComponent implements OnInit {
 
 
   constructor(private cd: ChangeDetectorRef,
-    private categorySer: CategoriesService
+    private categorySer: CategoriesService,
+    private translate: TranslateService
   ){}
 
   ngOnInit() {
@@ -55,6 +56,10 @@ export class ProductsListFilterComponent implements OnInit {
     this.doFilter.emit(this.productsListFilterForm.value);
     this.cd.detectChanges();
 
+  }
+
+  get getLang(){
+    return this.translate.currentLang
   }
 
   get id(){

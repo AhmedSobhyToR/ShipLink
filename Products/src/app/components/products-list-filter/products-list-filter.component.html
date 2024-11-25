@@ -1,4 +1,6 @@
-<form [formGroup]="productsListFilterForm">
+<form [formGroup]="productsListFilterForm" [style.left]="getLang == 'ar'?'5.5rem':''"
+[style.right]="getLang == 'en'?'5.5rem':''"
+[ngClass]="getLang == 'ar'? 'form-left' : 'form-right'">
 
     <!-- <div class="errors">
         @for (err of formErrors; track $index) {
@@ -12,35 +14,36 @@
 
         <div class="row">
             <div class="label-input">
-                <input type="text" formControlName="id">
-                <label *ngIf="!id">{{ "PRODUCT.ID" | translate }}</label>
+                <input type="text" formControlName="id" [ngClass]="getLang == 'ar'? 'input-left' : 'input-right'">
+                <label *ngIf="!id" [ngClass]="getLang == 'ar'? 'label-left' : 'label-right'" >{{ "PRODUCT.ID" | translate }}</label>
             </div>
 
             <div class="label-input">
-                <input type="text" formControlName="name" />
-                <label *ngIf="!name">{{ "PRODUCT.NAME" | translate }}</label>
+                <input type="text" formControlName="name"  [ngClass]="getLang == 'ar'? 'input-left' : 'input-right'"/>
+                <label *ngIf="!name" [ngClass]="getLang == 'ar'? 'label-left' : 'label-right'"> {{ "PRODUCT.NAME" | translate }}</label>
             </div>
         </div>
 
         <div class="row">
-            <div class="label-input">
-                <select formControlName="categoryName">
+            <div class="label-input" >
+                <select formControlName="categoryName" [ngClass]="getLang == 'ar'? 'label-left' : 'label-right'" 
+                [ngClass]="getLang == 'ar'? 'input-left' : 'input-right'">
                     @for (cat of categoryList; track $index) {
                         <option [value]="cat">{{cat}}</option>
                     }
                 </select>
-                <label *ngIf="!categoryName">{{ "CATEGORY.NAME" | translate }}</label>
+                <label *ngIf="!categoryName" [ngClass]="getLang == 'ar'? 'label-left' : 'label-right'">{{ "CATEGORY.NAME" | translate }}</label>
             </div>
 
             <div class="label-input">
-                <input type="text" formControlName="minPrice" />
-                <label *ngIf="!minPrice">{{ "PRODUCT.MIN_PRICE" | translate }}</label>
+                <input type="text" formControlName="minPrice"  [ngClass]="getLang == 'ar'? 'input-left' : 'input-right'"/>
+                <label *ngIf="!minPrice" [ngClass]="getLang == 'ar'? 'label-left' : 'label-right'">{{ "PRODUCT.MIN_PRICE" | translate }}</label>
             </div>
         </div>
         <div class="row">
             <div class="label-input">
-                <input type="text" formControlName="maxPrice" />
-                <label *ngIf="!maxPrice">{{ "PRODUCT.MAX_PRICE" | translate }}</label>
+                <input type="text" formControlName="maxPrice"  [ngClass]="getLang == 'ar'? 'input-left' : 'input-right'"/>
+                <label *ngIf="!maxPrice" [ngClass]="getLang == 'ar'? 'label-left' : 'label-right'">{{ "PRODUCT.MAX_PRICE" | translate }}</label>
             </div>
         </div>
 
