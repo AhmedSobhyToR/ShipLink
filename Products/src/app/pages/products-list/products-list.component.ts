@@ -43,10 +43,10 @@ export class ProductsListComponent implements OnInit{
     this.productListColumns = PRODUCT_LIST_COLUMN
      this.activatedRoute.data.subscribe({
       next: (data) => {
-        this.prdList = data['productsList'].data
+        this.prdList = data['productsList']
         this.filteredPrdList = this.prdList
-        this.numberOfPages = data['productsList'].pages
-        this.numberOfItems = data['productsList'].items
+        // this.numberOfPages = data['productsList'].pages
+        this.numberOfItems = this.filteredPrdList.length
         this.loading.endLoading();
       }
     })
@@ -67,6 +67,7 @@ export class ProductsListComponent implements OnInit{
 
   onFilter(filter: ProductFilter){
     this.filteredPrdList = this.prdList;
+
     this.toggleFilter();
     if(this.isFiltered){
       if(filter.id)
@@ -80,6 +81,7 @@ export class ProductsListComponent implements OnInit{
       if(filter.maxPrice)
         this.filteredPrdList = this.filteredPrdList.filter((row)=> row.price <= filter.maxPrice)
     }
+    this.numberOfItems = this.filteredPrdList.length
   }
 
   exportToExcel(){

@@ -10,7 +10,7 @@ import { ProductsService } from "../services/products/products.service";
 export class ProductsListResolver implements Resolve<Product[]>{
     constructor(private prdSer: ProductsService){}
     resolve(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): Observable<Product[]> {
-       return this.prdSer.getProducts(1,10);
+       return this.prdSer.getAllProducts();
     }
     
 }

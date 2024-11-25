@@ -1,5 +1,5 @@
 .product-details{
-    width: 1200px;
+    width: 1400px;
     background-color: rgba(239, 239, 239, 0.674);
     margin: auto;
     border-radius: 0.7rem;
@@ -16,7 +16,7 @@
 
 .info-container{
     background-color: rgba(255, 255, 255, 0.91);
-    min-width: 570px;
+    min-width: 48%;
     min-height: 100px;
     padding: 0.5rem 0.8rem;
     border-radius: 0.7rem;
