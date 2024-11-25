@@ -1,5 +1,5 @@
 form{
-    background-color: black;
+    background-color: rgb(7, 0, 44);
     color: white;
     width: max-content;
     padding: 3rem;
@@ -20,7 +20,7 @@ form::before {
     height: 0; 
     border-left: 13px solid transparent; 
     border-right: 13px solid transparent; 
-    border-bottom: 20px solid black; 
+    border-bottom: 20px solid rgb(7, 0, 44);
     position: absolute;
     top: -1.2rem; 
     left: 1rem; 
@@ -71,11 +71,29 @@ form::before {
     color: white;
 
 }
+.label-input select{
+    height: 45px;
+    width: 400px;
+    outline: none;
+    border: 2px solid white;
+    border-radius: 0.3rem;
+    padding: 0 0.5rem;
+
+
+
+}
+.label-input option,
+ .label-input select{
+    font-size: 1.3rem;
+    background-color: rgb(7, 0, 44);
+    color: white;
+
+}
 
 .label-input input:focus ~label{
     top: 0;
     left: 15px;
-    background-color: black;
+    background-color: rgb(7, 0, 44);
     font-size: 1.1rem;
     padding: 0 0.5rem;
 
@@ -91,5 +109,6 @@ form::before {
 .control-buttons input:first-child{
     border: 2px solid white;
     color: white;
-    background-color: black;
+    background-color: rgb(7, 0, 44);
+
 }

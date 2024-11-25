@@ -4,11 +4,12 @@ import { TranslateModule } from '@ngx-translate/core';
 import { FormArray, FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { CategoriesService } from '../../services/categories/categories.service';
 import { ShipmentsService } from '../../services/shipments/shipments.service';
-import { Carrier, ShipmentDetails } from '../../models/shipment.model';
+import { addressDto, Carrier, ShipmentDetails } from '../../models/shipment.model';
 import { Product } from '../../models/product.model';
 import { ProductsService } from '../../services/products/products.service';
 import { CommonModule } from '@angular/common';
 import { ShipmentStatus } from '../../enums/shipments-enums';
+import { LocationService } from '../../services/location.service';
 
 @Component({
   selector: 'app-new-shipment',
@@ -26,9 +27,12 @@ export class NewShipmentComponent implements OnInit{
   formErrors!: string[];
   newShipmentId!: number;
   newShipment!: ShipmentDetails;
+  originLocation: addressDto = {} as addressDto
+  location: { street: string; city: string; country: string } | null = null;
   constructor(private loading: LoadingService,
     private shipmentsService: ShipmentsService,
     private productsService: ProductsService,
+    private locationService: LocationService,
     private cd : ChangeDetectorRef
   ){
     this.loading.endLoading();
@@ -38,7 +42,7 @@ export class NewShipmentComponent implements OnInit{
     this.newShipmentForm = this.intializeNewProductForm();
     this.loadCarriers();
     this.loadProducts();
-
+    this.getLocation();
   }
 
   intializeNewProductForm(){
@@ -97,7 +101,13 @@ export class NewShipmentComponent implements OnInit{
     this.productsService.getAllProducts().subscribe({
       next:(data) => this.products = [{} as Product, ...data] 
     })
+  }
 
+  getLocation(){
+    this.locationService.getAddress().subscribe({
+      next: (data) => this.originLocation = data
+    })
+     
 
   }
 

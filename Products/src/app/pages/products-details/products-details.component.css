@@ -39,9 +39,19 @@ label{
 }
 .review-card{
     width: 48%;
+    min-height: 150px;
     padding: 0.5rem 0.8rem;
     border-radius: 0.7rem;
     box-shadow: 1px 1px 3px 1px rgb(204, 204, 204), -1px -1px 3px 1px rgb(204, 204, 204);
+}
+
+.user-rating{
+    display: flex;
+    flex-direction: row;
+    gap: 1rem;
+}
+.user-rating p{
+    font-weight: bold;
 }
 
 .user-rating img{

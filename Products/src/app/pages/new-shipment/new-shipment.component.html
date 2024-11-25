@@ -1,5 +1,4 @@
 <form (ngSubmit)="onAddShipment()" [formGroup]="newShipmentForm">
-
     <!-- <div class="errors">
         @for (err of formErrors; track $index) {
         <div class="error">
@@ -50,15 +49,15 @@
                     <h2>{{ "SHIPMENT.ORIGIN" | translate }}</h2>
                     <div class="label-input">
                         <label>{{ "SHIPMENT.STREET" | translate }}</label>
-                        <input type="text" formControlName="street" />
+                        <input type="text" formControlName="street" [value]="originLocation.street"/>
                     </div>
                     <div class="label-input">
                         <label>{{ "SHIPMENT.CITY" | translate }}</label>
-                        <input type="text" formControlName="city" />
+                        <input type="text" formControlName="city" [value]="originLocation.city" />
                     </div>
                     <div class="label-input">
                         <label>{{ "SHIPMENT.COUNTRY" | translate }}</label>
-                        <input type="text" formControlName="country" />
+                        <input type="text" formControlName="country" [value]="originLocation.country" />
                     </div>
                 </div>
 
