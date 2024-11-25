@@ -2,56 +2,143 @@
 
     <div class="errors">
         @for (err of formErrors; track $index) {
-            <div class="error">
-                <img src="/assets/images/error.svg" alt="an error">
-                <p>{{err}}</p>
-            </div>
+        <div class="error">
+            <img src="/assets/images/error.svg" alt="an error">
+            <p>{{err}}</p>
+        </div>
         }
     </div>
+
     <div class="form-inputs">
+        <div class="product-details">
+            <h2>{{'PRODUCT.PRODUCT_DETAILS' | translate}}</h2>
+            <!-- Row -->
+            <div class="row">
+                <div class="label-input">
+                    <label>{{ "PRODUCT.ID" | translate }}</label>
+                    <input type="text" class="disabled-input" formControlName="id" [readOnly]="true" />
+                </div>
 
-    <div class="row">
-        <div class="label-input">
-            <label>{{ "PRODUCT.ID" | translate }}</label>
-            <input type="text" class="disabled-input" formControlName="id" [readOnly]="true"/>
+                <div class="label-input">
+                    <label>{{ "PRODUCT.NAME" | translate }}</label>
+                    <input type="text" formControlName="name" />
+                </div>
+
+                <div class="label-input">
+                    <label>{{ "CATEGORY.NAME" | translate }}</label>
+                    <select formControlName="categoryName">
+                        @for (cat of productsCategories; track $index) {
+                        <option [value]="cat.id">{{cat.name}}</option>
+                        }
+                    </select>
+
+                </div>
+            </div>
+
+            <!-- Row -->
+            <div class="row">
+                <div class="label-input">
+                    <label>{{ "PRODUCT.PRICE" | translate }}</label>
+                    <input type="text" formControlName="price" />
+                </div>
+
+                <div class="label-input">
+                    <label>{{ "PRODUCT.STOCK" | translate }}</label>
+                    <input type="text" formControlName="stock" />
+                </div>
+
+                <div class="label-input">
+                    <label>{{ "PRODUCT.WARRANTY" | translate }}</label>
+                    <input type="text" formControlName="warranty" />
+                </div>
+            </div>
+            <!-- Row -->
+            <div class="row">
+
+
+                <div class="label-input">
+                    <label>{{ "PRODUCT.BRAND" | translate }}</label>
+                    <input type="text" formControlName="brand" />
+                </div>
+
+
+                <div class="label-input">
+                    <label>{{ "PRODUCT.MODEL" | translate }}</label>
+                    <input type="text" formControlName="model" />
+                </div>
+
+
+                <div class="label-input">
+                    <label>{{ "PRODUCT.DESCRIPTION" | translate }}</label>
+                    <textarea formControlName="description"></textarea>
+                </div>
+
+            </div>
+
+            <div class="row">
+                <!-- Discount -->
+                <div class="col">
+                    <div class="add-input">
+                        <div class="add-product-logo" (click)="onAddDiscount()">
+                            <img *ngIf="!isDiscount" src="/assets/images/plus-solid.svg" alt="add">
+                            <img *ngIf="isDiscount" src="/assets/images/minus-solid.svg" alt="add">
+
+                        </div>
+                        <p *ngIf="!isDiscount">{{"PRODUCT.ADD_NEW_DISCOUNT" | translate}}</p>
+                        <p *ngIf="isDiscount">{{"PRODUCT.REMOVE_NEW_DISCOUNT" | translate}}</p>
+
+                    </div>
+
+                    <div class="discount" formGroupName="discount" *ngIf="isDiscount">
+                        <h2>{{ "PRODUCT.DISCOUNT" | translate }}</h2>
+                        <div class="label-input">
+                            <label>{{ "PRODUCT.AMOUNT" | translate }}</label>
+                            <input type="text" formControlName="amount" />
+                        </div>
+
+                        <div class="label-input">
+                            <label>{{ "PRODUCT.VALID_UNTIL" | translate }}</label>
+                            <input type="text" formControlName="validUntil" />
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Dimensions -->
+
+                <div class="col">
+                    <div class="add-input">
+                        <div class="add-product-logo" (click)="onAddDimensions()">
+                            <img *ngIf="!isDimensions" src="/assets/images/plus-solid.svg" alt="add">
+                            <img *ngIf="isDimensions" src="/assets/images/minus-solid.svg" alt="add">
+
+                        </div>
+                        <p *ngIf="!isDimensions">{{"PRODUCT.ADD_NEW_DIMENSIONS" | translate}}</p>
+                        <p *ngIf="isDimensions">{{"PRODUCT.REMOVE_NEW_DIMENSIONS" | translate}}</p>
+
+                    </div>
+                    <div class="dimensions" formGroupName="dimensions" *ngIf="isDimensions">
+                        <h2>{{"PRODUCT.DIMENSIONS" | translate}}</h2>
+                        <div class="label-input">
+                            <label>{{ "PRODUCT.HEIGHT" | translate }}</label>
+                            <input type="text" formControlName="height" />
+                        </div>
+
+                        <div class="label-input">
+                            <label>{{ "PRODUCT.WIDTH" | translate }}</label>
+                            <input type="text" formControlName="width" />
+                        </div>
+
+
+                        <div class="label-input">
+                            <label>{{ "PRODUCT.WEIGHT" | translate }}</label>
+                            <input type="text" formControlName="weight" />
+                        </div>
+                    </div>
+                </div>
+
+            </div>
         </div>
 
-        <div class="label-input">
-            <label>{{ "PRODUCT.NAME" | translate }}</label>
-            <input type="text"formControlName="name" />
-        </div>
     </div>
-
-    <div class="row">
-        <div class="label-input">
-            <label>{{ "PRODUCT.CATEGORY_ID" | translate }}</label>
-            <select formControlName="categoryId">
-                @for (cat of productsCategories; track $index) {
-                    <option [value]="cat.id">{{cat.name}}</option>
-                }
-            </select>
-
-          </div>
-
-        <div class="label-input">
-            <label>{{ "PRODUCT.PRICE" | translate }}</label>
-            <input type="text" formControlName="price" />
-        </div>
-
-    </div>
-    <div class="row">
-        <div class="label-input">
-            <label>{{ "PRODUCT.STOCK" | translate }}</label>
-            <input type="text" formControlName="stock" />
-        </div>
-
-        <div class="label-input">
-            <label>{{ "PRODUCT.DESCRIPTION" | translate }}</label>
-            <textarea formControlName="description"></textarea>
-        </div>
-        
-    </div>
-        
-</div>
     <input type="submit" [value]="'PRODUCT.ADD_PRODUCT' | translate" class="normal-button" />
 </form>

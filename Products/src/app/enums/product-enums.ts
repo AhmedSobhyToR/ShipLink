@@ -1,3 +1,5 @@
+import { DiscountDto } from "../models/product.model"
+
 export const PRODUCT_LIST_COLUMN = [
     {
       label: 'PRODUCT.ID',
@@ -17,8 +19,9 @@ export const PRODUCT_LIST_COLUMN = [
       property : 'price'
     },
     {
-      label: 'PRODUCT.DESCRIPTION',
-      property : 'description'
+      label: 'PRODUCT.DISCOUNT',
+      property : 'discount',
+      valueTransformation:(discount: DiscountDto) => discount.amount + ' %'
     },
     {
       label: 'PRODUCT.STOCK',

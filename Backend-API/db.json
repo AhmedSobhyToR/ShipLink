@@ -1,24 +1,24 @@
 {
   "categories": [
     {
-      "id": "1",
+      "id": "c1",
       "name": "Electronics"
     },
     {
-      "id": "2",
+      "id": "c2",
       "name": "Home Appliances"
     },
     {
-      "id": "3",
+      "id": "c3",
       "name": "Books"
     }
   ],
   "products": [
     {
-      "id": "1",
+      "id": "p1",
       "name": "Smartphone",
       "category": {
-        "id": "1",
+        "id": "c1",
         "name": "Electronics"
       },
       "price": 699.99,
@@ -59,10 +59,10 @@
       ]
     },
     {
-      "id": "2",
+      "id": "p2",
       "name": "Laptop",
       "category": {
-        "id": "1",
+        "id": "c1",
         "name": "Electronics"
       },
       "price": 1199.99,
@@ -96,10 +96,10 @@
       ]
     },
     {
-      "id": "3",
+      "id": "p3",
       "name": "Microwave Oven",
       "category": {
-        "id": "2",
+        "id": "c2",
         "name": "Home Appliances"
       },
       "price": 299.99,
@@ -133,10 +133,10 @@
       ]
     },
     {
-      "id": "4",
+      "id": "p4",
       "name": "Refrigerator",
       "category": {
-        "id": "2",
+        "id": "c2",
         "name": "Home Appliances"
       },
       "price": 899.99,
@@ -170,10 +170,10 @@
       ]
     },
     {
-      "id": "5",
+      "id": "p5",
       "name": "Mystery Novel",
       "category": {
-        "id": "3",
+        "id": "c3",
         "name": "Books"
       },
       "price": 19.99,
@@ -206,10 +206,10 @@
       ]
     },
     {
-      "id": "6",
+      "id": "p6",
       "name": "Science Textbook",
       "category": {
-        "id": "3",
+        "id": "c3",
         "name": "Books"
       },
       "price": 39.99,
@@ -242,10 +242,10 @@
       ]
     },
     {
-      "id": "7",
+      "id": "p7",
       "name": "Wireless Earbuds",
       "category": {
-        "id": "1",
+        "id": "c1",
         "name": "Electronics"
       },
       "price": 149.99,
@@ -279,10 +279,10 @@
       ]
     },
     {
-      "id": "8",
+      "id": "p8",
       "name": "Tablet",
       "category": {
-        "id": "1",
+        "id": "c1",
         "name": "Electronics"
       },
       "price": 499.99,
@@ -317,10 +317,10 @@
       ]
     },
     {
-      "id": "9",
+      "id": "p9",
       "name": "Digital Camera",
       "category": {
-        "id": "1",
+        "id": "c1",
         "name": "Electronics"
       },
       "price": 649.99,
@@ -354,10 +354,10 @@
       ]
     },
     {
-      "id": "10",
+      "id": "p10",
       "name": "Bluetooth Speaker",
       "category": {
-        "id": "3",
+        "id": "c3",
         "name": "Home Appliances"
       },
       "price": 99.99,
@@ -392,10 +392,10 @@
       ]
     },
     {
-      "id": "11",
+      "id": "p11",
       "name": "Washing Machine",
       "category": {
-        "id": "3",
+        "id": "c3",
         "name": "Home Appliances"
       },
       "price": 499.99,
@@ -429,10 +429,10 @@
       ]
     },
     {
-      "id": "12",
+      "id": "p12",
       "name": "Air Conditioner",
       "category": {
-        "id": "2",
+        "id": "c2",
         "name": "Home Appliances"
       },
       "price": 799.99,
@@ -465,10 +465,10 @@
       ]
     },
     {
-      "id": "13",
+      "id": "p13",
       "name": "Toaster",
       "category": {
-        "id": "2",
+        "id": "c2",
         "name": "Home Appliances"
       },
       "price": 49.99,
@@ -502,10 +502,10 @@
       ]
     },
     {
-      "id": "14",
+      "id": "p14",
       "name": "Coffee Maker",
       "category": {
-        "id": "2",
+        "id": "c2",
         "name": "Home Appliances"
       },
       "price": 129.99,
@@ -539,10 +539,10 @@
       ]
     },
     {
-      "id": "15",
+      "id": "p15",
       "name": "Fiction Novel",
       "category": {
-        "id": "3",
+        "id": "c3",
         "name": "Books"
       },
       "price": 14.99,
@@ -591,12 +591,14 @@
         {
           "id": "1",
           "name": "Laptop",
-          "quantity": 1
+          "quantity": 1,
+          "notes": "Handle with care."
         },
         {
           "id": "2",
           "name": "Mouse",
-          "quantity": 2
+          "quantity": 2,
+          "notes": "Handle with care."
         }
       ],
       "status": "Shipped",
@@ -616,36 +618,45 @@
       },
       "shippedDate": "2024-11-01T10:00:00Z",
       "estimatedDeliveryDate": "2024-11-07T18:00:00Z",
-      "carrier": "FedEx",
+      "carrier": {
+        "name": "FedEx"
+      },
       "notes": "Handle with care."
     }
   ],
   "users": [
     {
       "name": "Alice Johnson",
-      "phone": "123-456-7890"
+      "phone": "123-456-7890",
+      "id": "e1c1"
     },
     {
       "name": "Bob Smith",
-      "phone": "987-654-3210"
+      "phone": "987-654-3210",
+      "id": "b40b"
     },
     {
       "name": "Ahmed Sobhy",
-      "phone": "0000000000"
+      "phone": "0000000000",
+      "id": "7897"
     }
   ],
   "carrier": [
     {
-      "name": "FedEx"
+      "name": "FedEx",
+      "id": "cd10"
     },
     {
-      "name": "Amazon"
+      "name": "Amazon",
+      "id": "813c"
     },
     {
-      "name": "DHL"
+      "name": "DHL",
+      "id": "9019"
     },
     {
-      "name": "Aramex"
+      "name": "Aramex",
+      "id": "dfd2"
     }
   ]
 }

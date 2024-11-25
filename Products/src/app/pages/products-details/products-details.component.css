@@ -1,5 +1,5 @@
 .product-details{
-    width: 1400px;
+    max-width: 1400px;
     background-color: rgba(239, 239, 239, 0.674);
     margin: auto;
     border-radius: 0.7rem;

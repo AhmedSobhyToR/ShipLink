@@ -17,18 +17,18 @@
                     <input type="text" class="disabled-input" formControlName="id" [readOnly]="true" />
                 </div>
 
-                <div class="label-input">
+                <div class="label-input" formGroupName="sender">
                     <label>{{ "SHIPMENT.SENDER" | translate }}</label>
-                    <input type="text" formControlName="sender" />
+                    <input type="text" formControlName="name" />
                 </div>
 
-                <div class="label-input">
+                <div class="label-input" formGroupName="receiver">
                     <label>{{ "SHIPMENT.RECEIVER" | translate }}</label>
-                    <input type="text" formControlName="receiver" />
+                    <input type="text" formControlName="name" />
                 </div>
             </div>
-
         </div>
+        
         <!-- Shipment Details -->
         <div class="shipment-details">
             <h2>{{'SHIPMENT.SHIPMENT_DETAILS' |translate}}</h2>
@@ -36,28 +36,29 @@
                 <div class="label-input">
                     <label>{{ "SHIPMENT.CARRIER" | translate }}</label>
                     <!-- <input type="text" formControlName="carrier" /> -->
-                    <select formControlName="carrier">
-                        @for (car of carriers; track $index) {
-                        <option [value]="car.name">{{car.name}}</option>
-                        }
-                    </select>
+                    <div formGroupName="carrier">
+                        <select formControlName="name">
+                            @for (car of carriers; track $index) {
+                            <option [value]="car.name">{{car.name}}</option>
+                            }
+                        </select>
+                    </div>
                 </div>
-
 
                 <!-- Origin -->
                 <div class="internal-form" formGroupName="origin">
                     <h2>{{ "SHIPMENT.ORIGIN" | translate }}</h2>
                     <div class="label-input">
                         <label>{{ "SHIPMENT.STREET" | translate }}</label>
-                        <input type="text" formControlName="street" [value]="originLocation.street"/>
+                        <input type="text" formControlName="street" />
+                    </div>
+                    <div class="label-input">
+                        <label>{{ "SHIPMENT.STATE" | translate }}</label>
+                        <input type="text" formControlName="state" />
                     </div>
                     <div class="label-input">
                         <label>{{ "SHIPMENT.CITY" | translate }}</label>
-                        <input type="text" formControlName="city" [value]="originLocation.city" />
-                    </div>
-                    <div class="label-input">
-                        <label>{{ "SHIPMENT.COUNTRY" | translate }}</label>
-                        <input type="text" formControlName="country" [value]="originLocation.country" />
+                        <input type="text" formControlName="city" />
                     </div>
                 </div>
 
@@ -69,54 +70,50 @@
                         <input type="text" formControlName="street" />
                     </div>
                     <div class="label-input">
+                        <label>{{ "SHIPMENT.STATE" | translate }}</label>
+                        <input type="text" formControlName="state" />
+                    </div>
+                    <div class="label-input">
                         <label>{{ "SHIPMENT.CITY" | translate }}</label>
                         <input type="text" formControlName="city" />
                     </div>
-                    <div class="label-input">
-                        <label>{{ "SHIPMENT.COUNTRY" | translate }}</label>
-                        <input type="text" formControlName="country" />
-                    </div>
                 </div>
             </div>
         </div>
 
-
-        <div class="products-details" formArrayName="product">
+        <div class="products-details" formArrayName="products">
             <h2>{{'PRODUCT.PRODUCTS_DATA_DETAILS' |translate}}</h2>
-            @for (prd of productFormArray.controls; track $index ; let idx  = $index) {
-                <div class="row" [formGroupName]="idx">
-                    <div class="label-input">
-                        <label>{{ "PRODUCT.NAME" | translate }}</label>
-                        <select formControlName="name"  class="scrollable-select">
-                            @for (prd of products; track prd.id) {
-                                <option [value]="prd.name">{{prd.name}}</option>
-                            }
-                        </select>
-                    </div>
-                    <div class="label-input">
-                        <label>{{ "PRODUCT.QUANTITY" | translate }}</label>
-                        <input type="text" formControlName="quantity" />
-                    </div>
-                    <div class="label-input">
-                        <label>{{ "SHIPMENT.NOTES" | translate }}</label>
-                        <textarea formControlName="notes"></textarea>
-                    </div>
-                    
-                    <div class="remove-product" (click)="onRemoveProduct(idx)" *ngIf="productFormArray.length>1"> 
-                        <img src="/assets/images/trash-solid.svg" alt="remove">
-                    </div>
+            <div class="row" *ngFor="let product of productFormArray.controls; let idx = index;" [formGroupName]="idx">
+                <div class="label-input">
+                    <label>{{ "PRODUCT.NAME" | translate }}</label>
+                    <select formControlName="name" class="scrollable-select">
+                        @for (prd of products; track prd.id) {
+                        <option [value]="prd.name">{{prd.name}}</option>
+                        }
+                    </select>
                 </div>
-            }
+                <div class="label-input">
+                    <label>{{ "PRODUCT.QUANTITY" | translate }}</label>
+                    <input type="text" formControlName="quantity" />
+                </div>
+                <div class="label-input">
+                    <label>{{ "SHIPMENT.NOTES" | translate }}</label>
+                    <textarea formControlName="notes"></textarea>
+                </div>
 
-            <div class="add-product" (click)="onAddProduct()"> 
-                <img src="/assets/images/plus-solid.svg" alt="add"> 
+                <div class="remove-product" (click)="onRemoveProduct(idx)" *ngIf="productFormArray.length>1">
+                    <img src="/assets/images/trash-solid.svg" alt="remove">
+                </div>
             </div>
 
+            <div class="add-product">
+                <div class="add-product-logo" (click)="onAddProduct()">
+                    <img src="/assets/images/plus-solid.svg" alt="add">
+
+                </div>
+                <p>{{"PRODUCT.ADD_NEW_PRODUCT" | translate}}</p>
+            </div>
         </div>
-
-
-
-
     </div>
     <input type="submit" [value]="'SHIPMENT.ADD_SHIPMENT' | translate" class="normal-button" />
 </form>

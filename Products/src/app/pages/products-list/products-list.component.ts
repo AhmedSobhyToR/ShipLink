@@ -1,6 +1,6 @@
 import { CommonModule } from '@angular/common';
-import { AfterViewInit, Component, OnInit } from '@angular/core';
-import { TranslateModule } from '@ngx-translate/core';
+import { AfterViewInit, Component, OnDestroy, OnInit } from '@angular/core';
+import { TranslateModule, TranslateService } from '@ngx-translate/core';
 import { MoreIconComponent } from '../../components/more-icon/more-icon.component';
 import { PageHeaderComponent } from '../../components/page-header/page-header.component';
 import { TablePaginatorComponent } from '../../components/table-paginator/table-paginator.component';
@@ -37,6 +37,7 @@ export class ProductsListComponent implements OnInit{
     private loading: LoadingService,
     private router: Router,
     private excelSer: ExcelService,
+    private translate: TranslateService
   ){
   }
   ngOnInit(): void {
@@ -89,6 +90,9 @@ export class ProductsListComponent implements OnInit{
        this.productListColumns as Column[],'products-list')
   }
 
+  get getLang(){
+    return this.translate.currentLang
+  }
 }
 
 

@@ -37,6 +37,7 @@ td{
     display: flex;
     flex-direction: row;
     gap: 2rem;
+ 
 }
 
 .excel-button{

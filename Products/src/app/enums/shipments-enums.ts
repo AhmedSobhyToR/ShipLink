@@ -1,5 +1,5 @@
 import { DatePipe } from "@angular/common"
-import { addressDto } from "../models/shipment.model"
+import { addressDto, Carrier } from "../models/shipment.model"
 
 export const SHIPMENTS_LIST_COLUMNS = [
     {
@@ -8,7 +8,9 @@ export const SHIPMENTS_LIST_COLUMNS = [
     },
     {
         label: 'SHIPMENT.CARRIER',
-        property : 'carrier'
+        property : 'carrier',
+        valueTransformation:(carrier: Carrier) => carrier.name
+
     },
     {
         label: 'SHIPMENT.ORIGIN',
@@ -23,9 +25,10 @@ export const SHIPMENTS_LIST_COLUMNS = [
     {
         label: 'SHIPMENT.SHIPPED_DATE',
         property : 'shippedDate',
-        valueTranfsormation: (shippedDate: string | Date) => {
-            const datePipe = new DatePipe('en-US')
-            return datePipe.transform(shippedDate, 'MM, dd, yyyy')
+        valueTranfsormation: (shippedDate: string) => {
+           let [d,t] = shippedDate.split('T');
+           d = d.replace('Z','');
+           return [d,t]
         }
     },
     {

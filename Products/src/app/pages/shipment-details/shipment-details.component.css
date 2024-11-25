@@ -1,0 +1,59 @@
+.shipment-details{
+    max-width: 1400px;
+    background-color: rgba(239, 239, 239, 0.674);
+    margin: auto;
+    border-radius: 0.7rem;
+    padding: 1rem;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.row{
+    justify-content: space-around;
+}
+
+.info-container{
+    background-color: rgba(255, 255, 255, 0.91);
+    width: 48%;
+    min-height: 100px;
+    padding: 0.5rem 0.8rem;
+    border-radius: 0.7rem;
+    box-shadow: 1px 1px 3px 1px rgb(204, 204, 204), -1px -1px 3px 1px rgb(204, 204, 204);
+    margin: 0 0.3rem;
+}
+label{
+    font-size: 1.9rem;
+    font-weight: bold;
+   
+}
+p, span{
+    font-size: 1.5rem;
+}
+
+.info-details {
+    display: flex;
+    flex-direction: column;
+ }
+ .info-details p{
+    display: flex;
+    justify-content: space-around;
+
+ }
+ .info-details p span{
+    min-width: 50%;
+    text-align: center;
+ }
+
+
+
+ /* Products */
+.products{
+    width: 100%;
+}
+ .products-container{
+    display: flex;
+    flex-wrap: wrap;
+    
+ }

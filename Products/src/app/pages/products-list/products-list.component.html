@@ -1,6 +1,6 @@
 <app-page-header title="PRODUCT.PRODUCTS_LIST" [totalData]="numberOfItems"></app-page-header>
 <!-- <input type="button" value="New Product" class="normal-button" (click)="onNewProduct()"> -->
-<div class="filter-excel-buttons">
+<div class="filter-excel-buttons" [style.direction]="getLang =='en'?'rtl':'ltr'"> 
 
     <input type="button" [value]="'GENERAL.FILTER' | translate" class="normal-button" (click)="toggleFilter()">
 

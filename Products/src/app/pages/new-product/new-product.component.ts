@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormControl, FormGroup, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
+import { FormArray, FormControl, FormGroup, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
 import { TranslateModule } from '@ngx-translate/core';
 import { CategoriesService } from '../../services/categories/categories.service';
 import { debounceTime, map } from 'rxjs';
@@ -8,11 +8,12 @@ import { Product } from '../../models/product.model';
 import { Category } from '../../models/category.model';
 import { LoadingService } from '../../services/loading.service';
 import { ActivatedRoute, Router } from '@angular/router';
+import { NgIf } from '@angular/common';
 
 @Component({
   selector: 'app-new-product',
   standalone: true,
-  imports: [TranslateModule, ReactiveFormsModule, FormsModule],
+  imports: [TranslateModule, ReactiveFormsModule, FormsModule, NgIf],
   templateUrl: './new-product.component.html',
   styleUrl: './new-product.component.css'
 })
@@ -20,7 +21,10 @@ export class NewProductComponent implements OnInit {
   newProductForm!: FormGroup;
   productsCategories!:Category[];
   formErrors!: string[];
-  newPrdId!: number;
+  newPrdId!: string;
+
+  isDiscount: boolean = false;
+  isDimensions: boolean = false;
 
   constructor(private categorySer: CategoriesService,
     private productsSer: ProductsService,
@@ -43,10 +47,25 @@ export class NewProductComponent implements OnInit {
     return new FormGroup({
       id: new FormControl(this.newPrdId),
       name: new FormControl(null, [Validators.required]),
-      categoryId: new FormControl(null, [Validators.required]),
+      categoryName: new FormControl(null, [Validators.required]),
       price: new FormControl(null, [Validators.required, Validators.pattern('[1-9][0-9]*')]),
       description: new FormControl(null),
       stock: new FormControl(null, [Validators.required]),
+      brand: new FormControl(null, [Validators.required]),
+      model: new FormControl(null, [Validators.required]),
+      warranty: new FormControl(null, [Validators.required]),
+      addedDate: new FormControl(null, [Validators.required]),
+      discount: new FormGroup({
+        amount: new FormControl (null, [Validators.required]),
+        validUntil: new FormControl (null, [Validators.required]),
+      }),
+
+      dimensions: new FormGroup({
+        height: new FormControl (null, [Validators.required]),
+        width: new FormControl (null, [Validators.required]),
+        weight: new FormControl (null, [Validators.required]),
+      }),
+      color: new FormArray([])
     })
   }
 
@@ -110,15 +129,41 @@ export class NewProductComponent implements OnInit {
   get stock() {
     return this.newProductForm.get('stock')!
   }
+
+  get discount(){
+    return this.newProductForm.get('discount')
+  }
+
+  get dimensions(){
+    return this.newProductForm.get('dimensions')
+  }
   
 
     getProductId(){
     this.activatedRoute.data.subscribe({
-      next: (data) => this.newPrdId =  (data['productsList'].items + 1).toString()
+      next: (data) => this.newPrdId = `p${data['productsList'].length+1}`
     })
+  }
 
+  onAddDiscount(){
+    this.isDiscount =  !this.isDiscount;
+    if(!this.isDiscount){
+      this.discount?.setValue({
+        amount: null,
+        validUntil: null
+      })
+    }
+  }
 
-    
+  onAddDimensions(){
+    this.isDimensions = !this.isDimensions;
+    if(!this.isDimensions){
+      this.dimensions?.setValue({
+        height: null,
+        width: null,
+        weight: null
+      })
+    }
   }
 
 }

@@ -11,14 +11,15 @@ export interface ShipmentsList{
 
 export interface ShipmentDetails{
     id: string;
+    trackingNumber: string;
     sender: personDto;
     receiver: personDto;
-    products: productDto;
+    products: productDto[];
     status: string;
     origin:addressDto;
     destination:addressDto;
-    shippedDate: Date | string;
-    estimatedDeliveryDate:  Date | string;
+    shippedDate:string;
+    estimatedDeliveryDate: string;
     carrier: Carrier;
     notes: string;
 }
@@ -32,7 +33,7 @@ export interface productDto{
     id: string;
     name: string;
     quantity: number;
-    notes: string;
+    notes?: string;
 }
 export interface addressDto{
     street:string;

@@ -9,6 +9,8 @@ import { NewShipmentComponent } from './pages/new-shipment/new-shipment.componen
 import { ShipmentsListResolver } from './resolvers/shipments-list-resolver';
 import { ProductsListComponent } from './pages/products-list/products-list.component';
 import { ProductsDetailsComponent } from './pages/products-details/products-details.component';
+import { ShipmentDetailsResolver } from './resolvers/shipment-details-resolver';
+import { NewShipmentResolver } from './resolvers/new-shipment-resolver';
 
 export const routes: Routes = [
     // Products
@@ -28,9 +30,13 @@ export const routes: Routes = [
         resolve:{shipmentsList: ShipmentsListResolver}
      },
     // Shipment Details
-    {path: 'shipments/shipment-details/:id', component: ShipmentDetailsComponent},
+    {path: 'shipments/shipment-details/:id', component: ShipmentDetailsComponent,
+      resolve: {shipmentDetails: ShipmentDetailsResolver}
+    },
 
       // New Shipment Request
-      {path: 'shipments/new-shipment', component: NewShipmentComponent},
+      {path: 'shipments/new-shipment', component: NewShipmentComponent,
+        resolve:{shipmentId: NewShipmentResolver}
+      },
 
 ];

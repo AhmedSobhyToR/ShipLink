@@ -1,1 +1,77 @@
-<p>shipment-details works!</p>
+<div class="shipment-details">
+    <app-page-header [title]="shipmentDetails.trackingNumber" [totalData]="shipmentDetails.id"></app-page-header>
+    <div class="row">
+        <div class="info-container"><label>{{'SHIPMENT.TRACKING_NUMBER' | translate}} </label>
+            <p>{{shipmentDetails.trackingNumber}}</p>
+        </div>
+        <div class="info-container"><label>{{'SHIPMENT.STATUS' | translate}} </label>
+            <p>{{shipmentDetails.status}}</p>
+        </div>
+    </div>
+    <div class="row">
+        <div class="info-container"><label>{{'SHIPMENT.SHIPPED_DATE' | translate}} </label>
+            <div class="info-details">
+                <p><span>{{'SHIPMENT.DATE' | translate}}</span> <span>{{getDateTime(shipmentDetails.shippedDate)[0]}}</span></p>
+                <p><span>{{'SHIPMENT.TIME' | translate}}</span> <span>{{getDateTime(shipmentDetails.shippedDate)[1]}}</span></p>
+            </div>
+           
+        </div>
+        <div class="info-container"><label>{{'SHIPMENT.ESTIMATED_DELIVERY_DATE' | translate}} </label>
+            <div class="info-details">
+            <p><span>{{'SHIPMENT.DATE' | translate}}</span> <span>{{getDateTime(shipmentDetails.estimatedDeliveryDate)[0]}}</span></p>
+            <p><span>{{'SHIPMENT.TIME' | translate}}</span> <span>{{getDateTime(shipmentDetails.estimatedDeliveryDate)[1]}}</span></p>
+        </div>
+        </div>
+    </div>
+   <!-- Location -->
+    <div class="row">
+        <div class="info-container"><label>{{'SHIPMENT.ORIGIN' | translate}} </label>
+            <p>{{getDetailedLocation(shipmentDetails.origin)}}</p>
+        </div>
+        <div class="info-container"><label>{{'SHIPMENT.DESTINATION' | translate}}</label>
+            <p>{{getDetailedLocation(shipmentDetails.destination)}}</p>
+        </div>
+    </div>
+
+    <div class="row">
+        <!-- Sender -->
+        <div class="info-container">
+            <label>{{'SHIPMENT.SENDER' | translate}}</label>
+                <div class="info-details">
+                    <p><span>{{'GENERAL.NAME' | translate}}</span> <span>{{shipmentDetails.sender.name}}</span></p>
+                    <p><span>{{'GENERAL.PHONE' | translate}}</span> <span>{{shipmentDetails.sender.phone}}</span></p>
+                </div>
+
+        </div>
+        <!-- Receiver -->
+        <div class="info-container">
+            <label>{{'SHIPMENT.RECEIVER' | translate}}</label>
+            <div class="info-details">
+                <p><span>{{'GENERAL.NAME' | translate}}</span> <span>{{shipmentDetails.receiver.name}}</span></p>
+                <p><span>{{'GENERAL.PHONE' | translate}}</span> <span>{{shipmentDetails.receiver.phone}}</span></p>
+            </div>
+        </div>
+        <!-- Carrier -->
+        <div class="info-container"><label>{{'SHIPMENT.CARRIER' | translate}}</label>
+            <p>{{shipmentDetails.carrier.name}}</p>
+        </div>
+    </div>
+
+    <!-- Products -->
+     <div class="info-container products">
+        <label>{{'PRODUCT.PRODUCTS' | translate}}</label>
+        <div class="products-container">
+        @for (prd of shipmentDetails.products; track $index) {
+            <div class="info-container info-details">
+                <p><span>{{'PRODUCT.NAME' | translate}}</span><span>{{prd.name}}</span></p>
+                <p><span>{{'PRODUCT.QUANTITY' | translate}}</span><span>{{prd.quantity}}</span></p>
+                <p *ngIf="prd.notes"><span>{{'SHIPMENT.NOTES' | translate}}</span><span>{{prd.notes}}</span></p>
+            </div>
+        }
+                    
+    </div>
+     </div>
+
+
+
+</div>

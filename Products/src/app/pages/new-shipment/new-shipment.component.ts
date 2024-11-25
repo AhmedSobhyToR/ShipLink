@@ -4,12 +4,14 @@ import { TranslateModule } from '@ngx-translate/core';
 import { FormArray, FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { CategoriesService } from '../../services/categories/categories.service';
 import { ShipmentsService } from '../../services/shipments/shipments.service';
-import { addressDto, Carrier, ShipmentDetails } from '../../models/shipment.model';
+import { addressDto, Carrier, personDto, ShipmentDetails } from '../../models/shipment.model';
 import { Product } from '../../models/product.model';
 import { ProductsService } from '../../services/products/products.service';
 import { CommonModule } from '@angular/common';
 import { ShipmentStatus } from '../../enums/shipments-enums';
 import { LocationService } from '../../services/location.service';
+import { ActivatedRoute } from '@angular/router';
+import { debounceTime } from 'rxjs';
 
 @Component({
   selector: 'app-new-shipment',
@@ -28,40 +30,55 @@ export class NewShipmentComponent implements OnInit{
   newShipmentId!: number;
   newShipment!: ShipmentDetails;
   originLocation: addressDto = {} as addressDto
-  location: { street: string; city: string; country: string } | null = null;
+  location: { street: string; state: string; city: string } | null = null;
   constructor(private loading: LoadingService,
     private shipmentsService: ShipmentsService,
     private productsService: ProductsService,
     private locationService: LocationService,
-    private cd : ChangeDetectorRef
+    private cd : ChangeDetectorRef,
+    private activatedRoute: ActivatedRoute
   ){
     this.loading.endLoading();
   }
 
   ngOnInit(): void {
-    this.newShipmentForm = this.intializeNewProductForm();
-    this.loadCarriers();
-    this.loadProducts();
-    this.getLocation();
+    this.activatedRoute.data.subscribe({
+      next:(data) => {this.newShipmentId = data['shipmentId']
+        this.newShipmentForm = this.intializeNewProductForm();
+        this.getLocation();
+        this.loadCarriers();
+        this.loadProducts();
+      }
+    })
+
   }
 
   intializeNewProductForm(){
     return new FormGroup({
-      id: new FormControl("2"),
-      sender: new FormControl(null, [Validators.required]),
-      receiver: new FormControl(null, [Validators.required]),
-      carrier: new FormControl(null, [Validators.required]),
+      id: new FormControl(`s${this.newShipmentId}`),
+      sender: new FormGroup({
+       name: new FormControl(null, [Validators.required]),
+       phone: new FormControl(null, [Validators.required])
+      }),
+      receiver: new FormGroup({
+        name: new FormControl(null, [Validators.required]),
+        phone: new FormControl(null, [Validators.required])
+      }
+      ),
+      carrier: new FormGroup({
+        name: new FormControl (null, [Validators.required])
+      }),
       origin: new FormGroup({
         street: new FormControl(null, [Validators.required]),
+        state: new FormControl(null, [Validators.required]),
         city: new FormControl(null, [Validators.required]),
-        country: new FormControl(null, [Validators.required]),
       }),
       destination: new FormGroup({
         street: new FormControl(null, [Validators.required]),
+        state: new FormControl(null, [Validators.required]),
         city: new FormControl(null, [Validators.required]),
-        country: new FormControl(null, [Validators.required]),
       }),
-      product : new FormArray([this.createProductGroup()])
+      products : new FormArray([this.createProductGroup()])
 
     })
   }
@@ -75,22 +92,22 @@ export class NewShipmentComponent implements OnInit{
   }
 
   get productFormArray(){
-    return this.newShipmentForm.get('product') as FormArray;
+    return this.newShipmentForm.get('products') as FormArray;
   }
 
   onRemoveProduct(idx: number){
     console.log(idx);
+    this.productFormArray.at(idx).setValue({
+      name : null,
+      quantity : null,
+      notes : null,
+    })
     this.productFormArray.removeAt(idx)
-    this.cd.detectChanges();
   }
 
   onAddProduct(){
     this.productFormArray.push(this.createProductGroup())
-    this.cd.detectChanges();
-
   }
-
-
 
   loadCarriers(){
     this.shipmentsService.getCarriers().subscribe({
@@ -105,11 +122,23 @@ export class NewShipmentComponent implements OnInit{
 
   getLocation(){
     this.locationService.getAddress().subscribe({
-      next: (data) => this.originLocation = data
+      next: (data) => {
+        this.originLocation = data
+        this.origin?.patchValue({
+          street: this.originLocation.street,
+          state: this.originLocation.state,
+          city: this.originLocation.city
+        })
+
+      }
     })
      
 
   }
+
+  get generateTrackingNumber(){
+    return (Math.random() + 1).toString(36).substring(8)
+}
 
 
   onAddShipment(){
@@ -118,10 +147,13 @@ export class NewShipmentComponent implements OnInit{
   const estimatedDate = this.addDays(shippedDate,5);
    this.newShipment = {
     ...this.newShipmentForm.value,
+    "trackingNumber": this.generateTrackingNumber + shippedDate,
     "status" : ShipmentStatus.Pending,
     "shippedDate" : shippedDate,
-    "estimatedDeliveryDate" :estimatedDate
+    "estimatedDeliveryDate" :estimatedDate,
    }
+
+   console.log(this.newShipment);
    this.shipmentsService.createNewShipment(this.newShipment).subscribe();
   }
 
@@ -143,4 +175,9 @@ export class NewShipmentComponent implements OnInit{
   get name() {
     return this.newShipmentForm.get('name')!
   }
+
+  get origin(){
+    return this.newShipmentForm.get('origin')
+  }
+
 }

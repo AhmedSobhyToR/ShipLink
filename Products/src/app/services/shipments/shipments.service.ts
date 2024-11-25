@@ -27,4 +27,5 @@ export class ShipmentsService {
   createNewShipment(shipment: ShipmentDetails): Observable<ShipmentDetails>{
     return this.httpClient.post<ShipmentDetails>(`${this.backendUrl}/shipments`,JSON.stringify(shipment))
   }
+
 }
