@@ -87,8 +87,8 @@ h2{
 
 
 
-.disabled-input{
-    background-color: black;    
+ .label-input  .disabled-input{
+    background-color:rgb(7, 0, 44);
     color: white;
     cursor: not-allowed;
 }

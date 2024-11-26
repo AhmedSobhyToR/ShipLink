@@ -31,7 +31,10 @@
         "PRODUCTS_FILTER": "Products Filter",
         "ADD_PRODUCT": "Add Product",
         "ADD_NEW_PRODUCT": "Add New Product",
-
+        "ADD_NEW_DISCOUNT": "Add Discount",
+        "REMOVE_NEW_DISCOUNT":  "Cancel Discount",
+        "ADD_NEW_DIMENSIONS": "Add Dimensions",
+        "REMOVE_NEW_DIMENSIONS":    "Cancel Dimensions",
         "BRAND": "Brand",
         "MODEL": "Model",
         "WARRANTY": "Warranty",
@@ -71,7 +74,6 @@
         "TIME": "Time",
         "ESTIMATED_DELIVERY_DATE": "Estimated Delivery Date",
         "NOTES": "Notes",
-
         "USERS_DETAILS": "Users Details",
         "STREET": "Street",
         "STATE": "State",

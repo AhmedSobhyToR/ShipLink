@@ -76,12 +76,12 @@ export class NewProductComponent implements OnInit {
   }
 
   onAddProduct(){
-    if(!this.newProductForm.valid){
-      this.handleFormErrors();
-      return
-    }
+    // if(!this.newProductForm.valid){
+    //   this.handleFormErrors();
+    //   return
+    // }
     this.productsSer.addProduct(this.newProductForm.value).subscribe({
-      complete: (()=>this.router.navigate(['/products-list']))
+      complete: (()=>this.router.navigate(['/products/products-list']))
     })
     this.newProductForm = this.intializeNewProductForm();
   }
