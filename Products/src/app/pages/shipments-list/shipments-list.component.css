@@ -28,14 +28,23 @@ td{
     border-bottom: 1px solid grey;
     color: grey;
 }
-
 .normal-button{
+    display: flex;
+    flex-direction: row;
+    gap: 1rem;
     margin: 1rem 0;
+    justify-content: center;
 }
+
+.normal-button img{
+    width: 30px;
+}
+
 .filter-excel-buttons{
     display: flex;
     flex-direction: row;
     gap: 2rem;
+ 
 }
 
 .excel-button{
@@ -43,6 +52,7 @@ td{
     color: rgb(0, 94, 0);
     background-color: white;
 }
+
 th{
     height: 100px;
 }

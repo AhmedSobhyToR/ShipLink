@@ -47,7 +47,8 @@
         "WIDTH" : "العرض",
         "WEIGHT": "الوزن",
         "COLOR" : "اللون",
-        "REVIEWS": "اراء المستخدمين"
+        "REVIEWS": "اراء المستخدمين",
+        "IMAGE": "صورة المنتج"
         
     },
     "CATEGORY": {
@@ -70,6 +71,9 @@
         "ORIGIN": "المصدر",
         "DESTINATION": "الوجهة",
         "SHIPPED_DATE": "تاريخ الشحن",
+        "SHIPPED_FROM_DATE": "تاريخ بداية الشحن",
+        "SHIPPED_TO_DATE": "تاريخ نهاية الشحن",
+
         "ADD_SHIPMENT": "اضافة الشحنة",
         "DATE": "التاريخ",
         "TIME" : "التوقيت",

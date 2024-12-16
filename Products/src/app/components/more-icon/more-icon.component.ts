@@ -27,7 +27,7 @@ export class MoreIconComponent {
 
   onDetailsView(){
     this.isExpanded = false;
-    this.loadingSer.startLoading();
+    // this.loadingSer.startLoading();
     this.router.navigate([this.url, this.id])
   }
 }

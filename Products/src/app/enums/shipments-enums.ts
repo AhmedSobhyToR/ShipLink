@@ -25,17 +25,38 @@ export const SHIPMENTS_LIST_COLUMNS = [
     {
         label: 'SHIPMENT.SHIPPED_DATE',
         property : 'shippedDate',
-        valueTranfsormation: (shippedDate: string) => {
+        valueTransformation: (shippedDate: string) => {
            let [d,t] = shippedDate.split('T');
            d = d.replace('Z','');
-           return [d,t]
+           return [d]
         }
     },
     {
         label: 'SHIPMENT.ESTIMATED_DELIVERY_DATE',
-        property : 'estimatedDeliveryDate'
+        property : 'estimatedDeliveryDate',
+        valueTransformation: (estimatedDeliveryDate: string) => {
+            let [d,t] = estimatedDeliveryDate.split('T');
+            d = d.replace('Z','');
+            return [d]
+         }
+         
+    },
+
+    {
+        label: 'SHIPMENT.STATUS',
+        property : 'status',
+    
     }
 ]
+
+export const ShipmentsStatus  = [
+    {label: 0, textAr:"قيد الانتظار",textEn:"Pending" },
+    {label: 1, textAr:"تم الشحن",textEn:"Shipped" },
+    {label: 2, textAr:"تم التوصيل",textEn:"Delivered" },
+    {label: 3, textAr:"تم الالغاء",textEn:"Canceled" },
+    {label: 4, textAr:"تمت الاعادة",textEn:"Returned" },
+
+];
 
 export enum ShipmentStatus {
     Pending = 'Pending',

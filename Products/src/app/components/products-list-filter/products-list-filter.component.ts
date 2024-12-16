@@ -2,21 +2,22 @@ import { CommonModule, NgClass } from '@angular/common';
 import { ChangeDetectorRef, Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { FormControl, FormGroup, ReactiveFormsModule } from '@angular/forms';
 import { TranslateModule, TranslateService } from '@ngx-translate/core';
-import { ProductFilter } from '../../models/product.model';
+import { ProductFilter, SelectedItem } from '../../models/product.model';
 import { CategoriesService } from '../../services/categories/categories.service';
 import { Category } from '../../models/category.model';
+import { DropdownListComponent } from "../dropdown-list/dropdown-list.component";
 
 @Component({
   selector: 'app-products-list-filter',
   standalone: true,
-  imports: [TranslateModule, ReactiveFormsModule, CommonModule, NgClass],
+  imports: [TranslateModule, ReactiveFormsModule, CommonModule, NgClass, DropdownListComponent],
   templateUrl: './products-list-filter.component.html',
   styleUrl: './products-list-filter.component.css'
 })
 export class ProductsListFilterComponent implements OnInit {
 
   productsListFilterForm!: FormGroup;
-  categoryList!: string[];
+  categoryList!: SelectedItem[];
   @Output() doFilter =  new EventEmitter<ProductFilter>();
   // @Output() isFiltered =  new EventEmitter<boolean>();
 
@@ -43,9 +44,13 @@ export class ProductsListFilterComponent implements OnInit {
 
   loadCategories(){
     this.categorySer.loadCategories().subscribe({
-      next: (data) => this.categoryList = data.map(data => data.name)
+      next: (data) => this.categoryList = data.map(row =>({
+        value: row.name,
+        label: row.name
+      } as SelectedItem))
     })
   }
+  
   resetFilter(){
     this.productsListFilterForm = this.intializeFilterForm();
     this.doFilter.emit(this.productsListFilterForm.value);

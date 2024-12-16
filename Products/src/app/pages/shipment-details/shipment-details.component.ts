@@ -31,6 +31,7 @@ export class ShipmentDetailsComponent implements OnInit{
       next: (data) => {
         this.shipmentDetails = data['shipmentDetails'];
         console.log(this.shipmentDetails)
+        
         this.loading.endLoading();
       }
     })

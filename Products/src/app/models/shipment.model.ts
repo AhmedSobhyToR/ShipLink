@@ -5,6 +5,7 @@ export interface ShipmentsList{
     destination:addressDto;
     shippedDate: Date | string;
     estimatedDeliveryDate:  Date | string;
+    status: string;
     [key:string]: any;
 }
 
@@ -24,6 +25,14 @@ export interface ShipmentDetails{
     notes: string;
 }
 
+export interface ShipmentFilter{
+    shipmentId: string;
+    shipmentCarrier: string;
+    shipmentStatus: string;
+    shipmentDateFrom: string;
+    shipmentDateTo: string;
+}
+
 export interface personDto{
     name: string;
     phone: string;
@@ -31,7 +40,7 @@ export interface personDto{
 
 export interface productDto{
     id: string;
-    name: string;
+    name: any;
     quantity: number;
     notes?: string;
 }
@@ -44,5 +53,6 @@ export interface addressDto{
 }
 
 export interface Carrier{
+    id: string;
     name: string;
 }

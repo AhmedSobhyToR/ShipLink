@@ -36,13 +36,14 @@
                 <div class="label-input">
                     <label>{{ "SHIPMENT.CARRIER" | translate }}</label>
                     <!-- <input type="text" formControlName="carrier" /> -->
-                    <div formGroupName="carrier">
+                     <app-dropdown-list [data]="carriers" formControlName="carrier"></app-dropdown-list>
+                    <!-- <div formGroupName="carrier">
                         <select formControlName="name">
                             @for (car of carriers; track $index) {
                             <option [value]="car.name">{{car.name}}</option>
                             }
                         </select>
-                    </div>
+                    </div> -->
                 </div>
 
                 <!-- Origin -->
@@ -85,13 +86,15 @@
             <h2>{{'PRODUCT.PRODUCTS_DATA_DETAILS' |translate}}</h2>
             <div class="row" *ngFor="let product of productFormArray.controls; let idx = index;" [formGroupName]="idx">
                 <div class="label-input">
-                    <label>{{ "PRODUCT.NAME" | translate }}</label>
+                <label>{{ "PRODUCT.NAME" | translate }}</label>
+                <app-dropdown-list [data]="productsNames" formControlName="name"></app-dropdown-list>
+                    <!-- <label>{{ "PRODUCT.NAME" | translate }}</label>
                     <select formControlName="name" class="scrollable-select">
                         @for (prd of products; track prd.id) {
                         <option [value]="prd.name">{{prd.name}}</option>
                         }
-                    </select>
-                </div>
+                    </select> -->
+            </div> 
                 <div class="label-input">
                     <label>{{ "PRODUCT.QUANTITY" | translate }}</label>
                     <input type="text" formControlName="quantity" />

@@ -1,0 +1,67 @@
+<form [formGroup]="shipmentsListFilterForm" [style.left]="getLang == 'ar'?'5.5rem':''"
+[style.right]="getLang == 'en'?'5.5rem':''"
+[ngClass]="getLang == 'ar'? 'form-left' : 'form-right'">
+
+    <!-- <div class="errors">
+        @for (err of formErrors; track $index) {
+            <div class="error">
+                <img src="/assets/images/error.svg" alt="an error">
+                <p>{{err}}</p>
+            </div>
+        }
+    </div> -->
+    <div class="form-inputs">
+
+        <div class="row">
+            <div class="label-input">
+                <input type="text" formControlName="shipmentId" [ngClass]="getLang == 'ar'? 'input-left' : 'input-right'">
+                <label *ngIf="!shipmentId" [ngClass]="getLang == 'ar'? 'label-left' : 'label-right'" >{{ "SHIPMENT.ID" | translate }}</label>
+            </div>
+
+        
+                <div class="label-input" >
+                        <app-dropdown-list [data]="carriersList" formControlName="shipmentCarrier"></app-dropdown-list>
+                    <!-- <select formControlName="categoryName" [ngClass]="getLang == 'ar'? 'label-left' : 'label-right'" 
+                    [ngClass]="getLang == 'ar'? 'input-left' : 'input-right'">
+                        @for (cat of categoryList; track $index) {
+                            <option [value]="cat">{{cat}}</option>
+                        }
+                    </select> -->
+                    <label *ngIf="!shipmentCarrier" [ngClass]="getLang == 'ar'? 'label-left' : 'label-right'">{{ "SHIPMENT.CARRIER" | translate }}</label>
+                </div>
+
+
+        </div>
+
+        <div class="row">
+            <div class="label-input" >
+                    <app-dropdown-list [data]="shipmentsStatus" formControlName="shipmentStatus"></app-dropdown-list>
+                <!-- <select formControlName="categoryName" [ngClass]="getLang == 'ar'? 'label-left' : 'label-right'" 
+                [ngClass]="getLang == 'ar'? 'input-left' : 'input-right'">
+                    @for (cat of categoryList; track $index) {
+                        <option [value]="cat">{{cat}}</option>
+                    }
+                </select> -->
+                <label *ngIf="!shipmentStatus" [ngClass]="getLang == 'ar'? 'label-left' : 'label-right'">{{ "SHIPMENT.STATUS" | translate }}</label>
+            </div>
+
+            <div class="label-input">
+                <input type="date" formControlName="shipmentDateFrom" [ngClass]="getLang == 'ar'? 'input-left' : 'input-right'"/>
+                <label *ngIf="!shipmentDateFrom" [ngClass]="getLang == 'ar'? 'label-left' : 'label-right'">{{ "SHIPMENT.SHIPPED_FROM_DATE" | translate }}</label>
+            </div>
+        </div>
+        <div class="row">
+            <div class="label-input">
+                <input type="date" formControlName="shipmentDateTo"  [ngClass]="getLang == 'ar'? 'input-left' : 'input-right'"/>
+                <label *ngIf="!shipmentDateTo" [ngClass]="getLang == 'ar'? 'label-left' : 'label-right'">{{ "SHIPMENT.SHIPPED_TO_DATE" | translate }}</label>
+            </div>
+        </div>
+
+
+    </div>
+    <div class="control-buttons">
+        <input type="button" [value]="'PRODUCT.PRODUCTS_FILTER' | translate" class="normal-button" (click)="filterList()" />
+        <input type="button" [value]="'GENERAL.RESET' | translate" class="normal-button" (click)="resetFilter()"/>
+    </div>
+
+</form>

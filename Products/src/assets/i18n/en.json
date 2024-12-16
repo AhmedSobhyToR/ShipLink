@@ -24,7 +24,7 @@
         "PRODUCTS_LIST": "Products List",
         "PRODUCT_DETAILS": "Product Details",
         "NEW_PRODUCT": "Request New Product",
-        "PRODUCTS_DATA_DETAILS": "Products Data Details",
+        "PRODUCTS_DATA_DETAILS": "Products Details",
         "MIN_PRICE": "Minimum Product Price",
         "MAX_PRICE": "Maximum Product Price",
         "QUANTITY": "Quantity",
@@ -47,7 +47,8 @@
         "WIDTH": "Width",
         "WEIGHT": "Weight",
         "COLOR": "Color",
-        "REVIEWS": "User Reviews"
+        "REVIEWS": "User Reviews",
+        "IMAGE": "Product Image"
     },
     "CATEGORY": {
         "ID": "Category ID",

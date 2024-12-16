@@ -1,4 +1,4 @@
-import { Routes } from '@angular/router';
+import { Routes, withRouterConfig } from '@angular/router';
 
 import { ProductsListResolver } from './resolvers/products-list-resolver';
 import { ProductDetailsResolver } from './resolvers/product-details-resolver';
@@ -27,7 +27,7 @@ export const routes: Routes = [
      },
    //  Shipment List
      {path: 'shipments/shipments-list', component: ShipmentsListComponent,
-        resolve:{shipmentsList: ShipmentsListResolver}
+        resolve:{shipmentsList: ShipmentsListResolver},
      },
     // Shipment Details
     {path: 'shipments/shipment-details/:id', component: ShipmentDetailsComponent,

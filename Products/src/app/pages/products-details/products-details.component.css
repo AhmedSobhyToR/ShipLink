@@ -58,17 +58,18 @@ label{
     width: 25px;
 }
 
-.product-img{
-    width: 50%;
+.product-img-container{
     display: flex;
     justify-content: center;
     align-items: center;
-    border-radius: 0.7rem;
 }
-.product-img img{
+.product-img{
+    height: 400px;
+    width: 70%;
     border-radius: 0.7rem;
+    margin: auto;
+}
 
-}
 
 p, span{
     font-size: 1.5rem;

@@ -1,30 +1,35 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { FormArray, FormControl, FormGroup, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
 import { TranslateModule } from '@ngx-translate/core';
 import { CategoriesService } from '../../services/categories/categories.service';
 import { debounceTime, map } from 'rxjs';
 import { ProductsService } from '../../services/products/products.service';
-import { Product } from '../../models/product.model';
+import { Product, ProductDetails, SelectedItem } from '../../models/product.model';
 import { Category } from '../../models/category.model';
 import { LoadingService } from '../../services/loading.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { NgIf } from '@angular/common';
+import { DropdownListComponent } from "../../components/dropdown-list/dropdown-list.component";
 
 @Component({
   selector: 'app-new-product',
   standalone: true,
-  imports: [TranslateModule, ReactiveFormsModule, FormsModule, NgIf],
+  imports: [TranslateModule, ReactiveFormsModule, FormsModule, NgIf, DropdownListComponent],
   templateUrl: './new-product.component.html',
   styleUrl: './new-product.component.css'
 })
 export class NewProductComponent implements OnInit {
   newProductForm!: FormGroup;
-  productsCategories!:Category[];
+  newProduct !: ProductDetails;
+  productsCategories!:SelectedItem[];
   formErrors!: string[];
   newPrdId!: string;
+  imagePreview!:string;
 
   isDiscount: boolean = false;
   isDimensions: boolean = false;
+
+  @ViewChild('ImageInput') ImageInput!: ElementRef<HTMLInputElement>;
 
   constructor(private categorySer: CategoriesService,
     private productsSer: ProductsService,
@@ -47,7 +52,7 @@ export class NewProductComponent implements OnInit {
     return new FormGroup({
       id: new FormControl(this.newPrdId),
       name: new FormControl(null, [Validators.required]),
-      categoryName: new FormControl(null, [Validators.required]),
+      category: new FormControl(null, [Validators.required]),
       price: new FormControl(null, [Validators.required, Validators.pattern('[1-9][0-9]*')]),
       description: new FormControl(null),
       stock: new FormControl(null, [Validators.required]),
@@ -65,22 +70,69 @@ export class NewProductComponent implements OnInit {
         width: new FormControl (null, [Validators.required]),
         weight: new FormControl (null, [Validators.required]),
       }),
-      color: new FormArray([])
+      image: new FormControl(null, [Validators.required]),
+      color: new FormArray([]),
     })
   }
 
   loadProductsCategories(){
     this.categorySer.loadCategories().subscribe({
-      next: (data) => this.productsCategories = data
+      next: (data) => {this.productsCategories = data.map((row)=>
+        ({
+          value: row.id,
+          label: row.name
+        } as SelectedItem)
+      )
+    }
     })
   }
+
+  handleAddingProductData(){
+    const date = new Date();
+    const currentDate = date.toISOString().split('T')[0];
+    console.log(currentDate);
+    this.newProduct = this.newProductForm.value;
+    this.newProduct = {...this.newProduct,
+      addedDate: currentDate,
+      color: ["Black"],
+      imageUrl: this.imagePreview,
+      review: [],
+      category: {
+      id:this.category.value.value,
+      name: this.category.value.label
+      } as Category
+    }
+    
+  }
+
+  triggerAddingImage(){
+    this.ImageInput.nativeElement.click();
+  }
+
+  onAddImage(event: Event) {
+    const input = event.target as HTMLInputElement;
+    if (input.files && input.files[0]) {
+      const file = input.files[0];
+      const reader = new FileReader();
+      reader.onload = () => {
+        const productImage = reader.result as string;
+        this.imagePreview = productImage;
+      };
+      reader.readAsDataURL(file);
+    }
+}
+
+  
+    
+  
 
   onAddProduct(){
     // if(!this.newProductForm.valid){
     //   this.handleFormErrors();
     //   return
     // }
-    this.productsSer.addProduct(this.newProductForm.value).subscribe({
+    this.handleAddingProductData();
+    this.productsSer.addProduct(this.newProduct).subscribe({
       complete: (()=>this.router.navigate(['/products/products-list']))
     })
     this.newProductForm = this.intializeNewProductForm();
@@ -94,7 +146,7 @@ export class NewProductComponent implements OnInit {
       this.formErrors.push('Name is required');
     }
 
-    if (this.categoryId?.errors?.['required'] && this.categoryId?.touched && this.categoryId?.dirty) {
+    if (this.category?.errors?.['required'] && this.category?.touched && this.category?.dirty) {
       this.formErrors.push('Category is required');
     }
 
@@ -110,12 +162,16 @@ export class NewProductComponent implements OnInit {
     }
   }
 
+  get id(){
+    return this.newProductForm.get('id');
+  }
+
    get name() {
     return this.newProductForm.get('name')!
   }
   
-  get categoryId() {
-    return this.newProductForm.get('categoryId')!
+  get category() {
+    return this.newProductForm.get('category')!
   }
   
   get price() {
@@ -136,6 +192,10 @@ export class NewProductComponent implements OnInit {
 
   get dimensions(){
     return this.newProductForm.get('dimensions')
+  }
+
+  get image(){
+    return this.newProductForm.get('image')!
   }
   
 
