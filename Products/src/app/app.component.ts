@@ -10,8 +10,7 @@ import { ProductsListComponent } from './pages/products-list/products-list.compo
   selector: 'app-root',
   standalone: true,
   imports: [TranslateModule,
-      RouterOutlet, SidenavComponent,
-      LoadingComponent],
+    RouterOutlet, SidenavComponent, LoadingComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })

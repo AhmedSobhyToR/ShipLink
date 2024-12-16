@@ -19,7 +19,7 @@ export class SidenavComponent {
   }
 
   onNavigate(url:string){
-    this.loadingSer.startLoading();
+    // this.loadingSer.startLoading();
     this.router.navigate([url]);
   }
 

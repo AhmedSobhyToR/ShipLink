@@ -20,6 +20,7 @@
     "@angular/router": "^18.2.0",
     "@ngx-translate/core": "^16.0.3",
     "@ngx-translate/http-loader": "^16.0.0",
+    "as-styles-guide": "^0.0.0",
     "rxjs": "~7.8.0",
     "tslib": "^2.3.0",
     "xlsx": "^0.18.5",

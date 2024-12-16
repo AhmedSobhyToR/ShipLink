@@ -37,10 +37,11 @@
         <!-- Discount -->
         <div class="info-container">
             <label>{{'PRODUCT.DISCOUNT' | translate}}</label>
-                <div class="discount-details">
-                    <p><span>{{'PRODUCT.AMOUNT' | translate}}</span> <span>{{prdDetails.discount.amount}}%</span></p>
-                    <p><span>{{'PRODUCT.VALID_UNTIL' | translate}}</span> <span>{{prdDetails.discount.validUntil}}</span></p>
-                </div>
+            <div class="discount-details">
+                <p><span>{{'PRODUCT.AMOUNT' | translate}}</span> <span>{{prdDetails.discount.amount}}%</span></p>
+                <p><span>{{'PRODUCT.VALID_UNTIL' | translate}}</span> <span>{{prdDetails.discount.validUntil}}</span>
+                </p>
+            </div>
 
         </div>
         <!-- Dimensions -->
@@ -96,8 +97,12 @@
 
         </div>
 
-        <div class="product-img">
-            <img [src]="prdDetails.imageUrl" alt="product image">
+        <div class="info-container">
+            <label>{{'PRODUCT.IMAGE' | translate}}</label>
+                <div class="product-img-container">
+                    <img [src]="prdDetails.imageUrl" class="product-img" alt="product image">
+                </div>
+            
         </div>
     </div>
 

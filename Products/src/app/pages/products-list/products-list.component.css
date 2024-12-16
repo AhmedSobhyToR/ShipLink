@@ -31,8 +31,17 @@ td{
 }
 
 .normal-button{
+    display: flex;
+    flex-direction: row;
+    gap: 1rem;
     margin: 1rem 0;
+    justify-content: center;
 }
+
+.normal-button img{
+    width: 30px;
+}
+
 .filter-excel-buttons{
     display: flex;
     flex-direction: row;

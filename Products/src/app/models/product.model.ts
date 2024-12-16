@@ -10,6 +10,11 @@ export interface Product{
     [key: string]: any; 
 }
 
+export interface SelectedItem{
+    value: number | string;
+    label: string;
+}
+
 export interface ProductDetails{
     id: number;
     name: string;
