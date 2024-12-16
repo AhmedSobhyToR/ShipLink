@@ -51,9 +51,6 @@ export class ShipmentsListComponent implements OnInit, OnDestroy {
 
   }
 
-  
-
-
   toggleFilter(){
     this.showFilter = !this.showFilter;
   }
@@ -64,12 +61,13 @@ export class ShipmentsListComponent implements OnInit, OnDestroy {
 
   onFilter(filter: ShipmentFilter){
     this.filteredShipmentsList = this.shipmentsList;
+    this.toggleFilter();
     if(filter.shipmentId)
       this.filteredShipmentsList = this.filteredShipmentsList.filter((row)=> row.id == filter.shipmentId);
     if(filter.shipmentStatus)
       this.filteredShipmentsList = this.filteredShipmentsList.filter((row)=> row.status == filter.shipmentStatus);
     if(filter.shipmentCarrier)
-      this.filteredShipmentsList = this.filteredShipmentsList.filter((row)=> row.carrier == filter.shipmentCarrier);
+      this.filteredShipmentsList = this.filteredShipmentsList.filter((row)=> row.carrier.name == filter.shipmentCarrier);
     if(filter.shipmentDateFrom)
       this.filteredShipmentsList = this.filteredShipmentsList.filter((row)=> row.shippedDate >= filter.shipmentDateFrom);
     if(filter.shipmentDateTo)

@@ -1,6 +1,6 @@
 export interface ShipmentsList{
     id: string;
-    carrier: string;
+    carrier: Carrier;
     origin:addressDto;
     destination:addressDto;
     shippedDate: Date | string;

@@ -16,8 +16,8 @@
 </div>
 
 
-@if (isFiltered) {
-<app-products-list-filter (doFilter)="onFilter($event)" *ngIf="showFilter"></app-products-list-filter>
+@if (showFilter) {
+<app-products-list-filter (doFilter)="onFilter($event)"></app-products-list-filter>
 }
 
 <div class="table-container">

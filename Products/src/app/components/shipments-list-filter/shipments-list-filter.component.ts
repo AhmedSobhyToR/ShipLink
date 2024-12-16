@@ -1,5 +1,5 @@
 import { CommonModule, NgClass } from '@angular/common';
-import { ChangeDetectorRef, Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { ChangeDetectorRef, Component, ElementRef, EventEmitter, OnInit, Output, ViewChild } from '@angular/core';
 import { FormControl, FormGroup, ReactiveFormsModule } from '@angular/forms';
 import { TranslateModule, TranslateService } from '@ngx-translate/core';
 import { ProductFilter, SelectedItem } from '../../models/product.model';
@@ -23,6 +23,7 @@ export class ShipmentsListFilterComponent implements OnInit {
   carriersList!: SelectedItem[];
   shipmentsStatus!:SelectedItem[];
   @Output() doFilter =  new EventEmitter<ShipmentFilter>();
+  @ViewChild('popOver') popOver!: ElementRef;
   // @Output() isFiltered =  new EventEmitter<boolean>();
 
   constructor(private cd: ChangeDetectorRef,
@@ -67,6 +68,7 @@ export class ShipmentsListFilterComponent implements OnInit {
   resetFilter(){
     this.shipmentsListFilterForm = this.intializeFilterForm();
     this.doFilter.emit(this.shipmentsListFilterForm.value);
+    this.popOver.nativeElement.className = "hidden";
     this.cd.detectChanges();
   }
 
@@ -76,8 +78,8 @@ export class ShipmentsListFilterComponent implements OnInit {
       shipmentStatus: this.shipmentStatus?.value
 
     })
-    console.log(this.shipmentsListFilterForm.value);
     this.doFilter.emit(this.shipmentsListFilterForm.value);
+    this.popOver.nativeElement.className = "hidden";
     this.cd.detectChanges();
 
   }

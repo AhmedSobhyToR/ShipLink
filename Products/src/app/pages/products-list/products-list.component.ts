@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { AfterViewInit, Component, OnDestroy, OnInit } from '@angular/core';
+import { AfterViewInit, Component, ElementRef, OnDestroy, OnInit, ViewChild } from '@angular/core';
 import { TranslateModule, TranslateService } from '@ngx-translate/core';
 import { MoreIconComponent } from '../../components/more-icon/more-icon.component';
 import { PageHeaderComponent } from '../../components/page-header/page-header.component';
@@ -40,6 +40,7 @@ export class ProductsListComponent implements OnInit{
     private translate: TranslateService
   ){
   }
+
   ngOnInit(): void {
     this.productListColumns = PRODUCT_LIST_COLUMN
      this.activatedRoute.data.subscribe({
@@ -52,6 +53,7 @@ export class ProductsListComponent implements OnInit{
       }
     })
   }
+  
   
   onProductChange(products: Product[]){
     this.prdList = products;

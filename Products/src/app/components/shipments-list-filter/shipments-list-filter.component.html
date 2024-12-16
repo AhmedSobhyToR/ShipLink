@@ -1,6 +1,8 @@
 <form [formGroup]="shipmentsListFilterForm" [style.left]="getLang == 'ar'?'5.5rem':''"
 [style.right]="getLang == 'en'?'5.5rem':''"
-[ngClass]="getLang == 'ar'? 'form-left' : 'form-right'">
+[ngClass]="getLang == 'ar'? 'form-left' : 'form-right'"
+#popOver
+>
 
     <!-- <div class="errors">
         @for (err of formErrors; track $index) {

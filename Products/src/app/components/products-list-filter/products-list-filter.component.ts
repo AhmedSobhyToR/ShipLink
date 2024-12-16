@@ -1,5 +1,5 @@
 import { CommonModule, NgClass } from '@angular/common';
-import { ChangeDetectorRef, Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { ChangeDetectorRef, Component, ElementRef, EventEmitter, OnInit, Output, ViewChild } from '@angular/core';
 import { FormControl, FormGroup, ReactiveFormsModule } from '@angular/forms';
 import { TranslateModule, TranslateService } from '@ngx-translate/core';
 import { ProductFilter, SelectedItem } from '../../models/product.model';
@@ -19,6 +19,7 @@ export class ProductsListFilterComponent implements OnInit {
   productsListFilterForm!: FormGroup;
   categoryList!: SelectedItem[];
   @Output() doFilter =  new EventEmitter<ProductFilter>();
+  @ViewChild("popOver") popOver!: ElementRef;
   // @Output() isFiltered =  new EventEmitter<boolean>();
 
 
@@ -45,7 +46,7 @@ export class ProductsListFilterComponent implements OnInit {
   loadCategories(){
     this.categorySer.loadCategories().subscribe({
       next: (data) => this.categoryList = data.map(row =>({
-        value: row.name,
+        value: row.id,
         label: row.name
       } as SelectedItem))
     })
@@ -54,12 +55,18 @@ export class ProductsListFilterComponent implements OnInit {
   resetFilter(){
     this.productsListFilterForm = this.intializeFilterForm();
     this.doFilter.emit(this.productsListFilterForm.value);
+    this.popOver.nativeElement.className = "hidden"
     this.cd.detectChanges();
   }
 
   filterList(){
+    this.productsListFilterForm.patchValue({
+      categoryName: this.categoryName?.label
+    })
     this.doFilter.emit(this.productsListFilterForm.value);
+    this.popOver.nativeElement.className = "hidden"
     this.cd.detectChanges();
+
 
   }
 
