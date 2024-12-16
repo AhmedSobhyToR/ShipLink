@@ -1,13 +1,13 @@
 import { ApplicationConfig, provideZoneChangeDetection } from '@angular/core';
-import { provideRouter } from '@angular/router';
+import { provideRouter, withRouterConfig } from '@angular/router';
 
 import { routes } from './app.routes';
-import { provideHttpClient } from '@angular/common/http';
-import { provideTranslateService } from '@ngx-translate/core';
+import { provideHttpClient, withInterceptors } from '@angular/common/http';
 import { provideTranslateLoader } from '../translate-loader';
+import { LoadingInterceptor } from './interceptors/loading.interceptor';
 
 export const appConfig: ApplicationConfig = {
-  providers: [provideZoneChangeDetection({ eventCoalescing: true }), provideRouter(routes),
-    provideHttpClient(), provideTranslateLoader()
+  providers: [provideZoneChangeDetection({ eventCoalescing: true }), provideRouter(routes,withRouterConfig({ onSameUrlNavigation: 'reload' })),
+    provideHttpClient(withInterceptors([LoadingInterceptor])), provideTranslateLoader()
   ]
 };

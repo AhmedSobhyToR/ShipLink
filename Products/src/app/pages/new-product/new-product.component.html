@@ -1,5 +1,4 @@
 <form (ngSubmit)="onAddProduct()" [formGroup]="newProductForm">
-
     <div class="errors">
         @for (err of formErrors; track $index) {
         <div class="error">
@@ -26,11 +25,15 @@
 
                 <div class="label-input">
                     <label>{{ "CATEGORY.NAME" | translate }}</label>
-                    <select formControlName="categoryName">
+                  
+                        <app-dropdown-list [data]="productsCategories"
+                      formControlName="category"  ></app-dropdown-list>
+
+                    <!-- <select formControlName="categoryName">
                         @for (cat of productsCategories; track $index) {
                         <option [value]="cat.id">{{cat.name}}</option>
                         }
-                    </select>
+                    </select> -->
 
                 </div>
             </div>
@@ -98,7 +101,7 @@
 
                         <div class="label-input">
                             <label>{{ "PRODUCT.VALID_UNTIL" | translate }}</label>
-                            <input type="text" formControlName="validUntil" />
+                            <input type="date" formControlName="validUntil" />
                         </div>
                     </div>
                 </div>
@@ -132,6 +135,20 @@
                         <div class="label-input">
                             <label>{{ "PRODUCT.WEIGHT" | translate }}</label>
                             <input type="text" formControlName="weight" />
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Image -->
+
+                <div class="col">
+                    <div class="label-input">
+                        <label>{{ "PRODUCT.IMAGE" | translate }}</label>
+                        <div class="image-container" (click)="triggerAddingImage()">
+                            <img *ngIf="!imagePreview" src="/assets/images/plus-solid.svg" alt="add">
+                            <img  *ngIf="imagePreview" style="width: 100%; height: 100%;" [src]="imagePreview" alt="">
+                            <input type="file" #ImageInput formControlName="image" (change)="onAddImage($event)"
+                             accept="image/*" style="display: none;">
                         </div>
                     </div>
                 </div>

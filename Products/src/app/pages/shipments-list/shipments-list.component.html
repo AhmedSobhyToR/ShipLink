@@ -1,20 +1,24 @@
 
 
 <app-page-header title="SHIPMENT.SHIPMENTS_LIST" [totalData]="numberOfItems"></app-page-header>
-<!-- <input type="button" value="New Product" class="normal-button" (click)="onNewProduct()"> -->
- <div class="filter-excel-buttons">
+<div class="filter-excel-buttons" [style.direction]="getLang =='en'?'rtl':'ltr'">
+    <div class="normal-button" (click)="toggleFilter()">
+        <img src="/assets/images/filter-solid.svg" alt="filter">
+        <div type="button">{{'GENERAL.FILTER' | translate}}
+        </div>
+    </div>
+    <div class="normal-button excel-button" (click)="exportToExcel()">
+        <img src="/assets/images/file-csv-solid.svg" alt="excel">
+        <div type="button"> {{'GENERAL.EXPORT_TO_EXCEL' | translate}}
+        </div>
+    </div>
 
-    <input type="button" [value]="'GENERAL.FILTER' | translate" class="normal-button"
-    (click)="toggleFilter()">
-    
-    <input type="button" [value]="'GENERAL.EXPORT_TO_EXCEL' | translate" class="normal-button excel-button" 
-    (click)="exportToExcel()">
 
- </div>
+</div>
 
 
-@if (isFiltered) {
-    <app-products-list-filter (doFilter)="onFilter($event)" *ngIf="showFilter"  class="filter"></app-products-list-filter>
+@if (showFilter) {
+    <app-shipments-list-filter (doFilter)="onFilter($event)" class="filter"></app-shipments-list-filter>
 }
 
 <div class="table-container">

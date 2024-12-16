@@ -1,0 +1,13 @@
+<div class="dropdown-list">
+    <div class="header" (click)="toggleDropdownList()"> 
+        <label>{{choosenItem.label}}</label>
+        <img src="/assets/images/arrow_down.svg" *ngIf="!isExpanded">
+        <img src="/assets/images/arrow_up.svg" *ngIf="isExpanded">
+    </div>
+
+    <div class="body" *ngIf="isExpanded">
+      @for (item of data; track $index) {
+        <p (click)="onChooseItem(item)">{{item.label}}</p>
+      }
+    </div>
+</div>

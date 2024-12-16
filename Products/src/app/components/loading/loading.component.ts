@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { LoadingService } from '../../services/loading.service';
 
 @Component({
   selector: 'app-loading',
@@ -9,4 +10,11 @@ import { Component } from '@angular/core';
 })
 export class LoadingComponent {
 
+  isLoading = false;
+
+  constructor(private loadingService: LoadingService) {
+    this.loadingService.isLoading$.subscribe((loading) => {
+      this.isLoading = loading
+    });
+  }
 }

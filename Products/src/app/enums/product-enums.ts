@@ -12,7 +12,7 @@ export const PRODUCT_LIST_COLUMN = [
     {
       label: 'CATEGORY.NAME',
       property : 'category',
-      valueTransformation: (category: { name: string }) => category?.name,
+      valueTransformation: (category: { name: string }) => category.name
     },
     {
       label: 'PRODUCT.PRICE',

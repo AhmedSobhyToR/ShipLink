@@ -26,12 +26,13 @@
 
         <div class="row">
             <div class="label-input" >
-                <select formControlName="categoryName" [ngClass]="getLang == 'ar'? 'label-left' : 'label-right'" 
+                    <app-dropdown-list [data]="categoryList" formControlName="categoryName"></app-dropdown-list>
+                <!-- <select formControlName="categoryName" [ngClass]="getLang == 'ar'? 'label-left' : 'label-right'" 
                 [ngClass]="getLang == 'ar'? 'input-left' : 'input-right'">
                     @for (cat of categoryList; track $index) {
                         <option [value]="cat">{{cat}}</option>
                     }
-                </select>
+                </select> -->
                 <label *ngIf="!categoryName" [ngClass]="getLang == 'ar'? 'label-left' : 'label-right'">{{ "CATEGORY.NAME" | translate }}</label>
             </div>
 
@@ -50,8 +51,8 @@
 
     </div>
     <div class="control-buttons">
-        <input type="button" [value]="'GENERAL.RESET' | translate" class="normal-button" (click)="resetFilter()"/>
         <input type="button" [value]="'PRODUCT.PRODUCTS_FILTER' | translate" class="normal-button" (click)="filterList()" />
+        <input type="button" [value]="'GENERAL.RESET' | translate" class="normal-button" (click)="resetFilter()"/>
     </div>
 
 </form>
